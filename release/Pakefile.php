@@ -10,6 +10,9 @@ pake_desc('Remove temporary files');
 pake_task('clean');
 
 pake_task('default');
+
+
+
 function run_default()
 {
     pakeApp::get_instance()->display_tasks_and_comments();
@@ -25,8 +28,8 @@ function run_all_nightly()
 {
     $root = dirname(__FILE__);
 
-    $packages = pakeYaml::loadFile($root.'/packages.yaml');
     $options = pakeYaml::loadFile($root.'/options.yaml');
+    $packages = $options['packages'];
 
     pake_mkdirs($root.'/target');
     pake_mkdirs($root.'/target/obs');
@@ -38,7 +41,7 @@ function run_all_nightly()
         create_package($root.'/target', $package, $options['version'], $options);
     }
 
-    // TODO: midgardmvc
+    create_midgardmvc_package($root.'/target', $options['version'], $options);
 
     pake_echo_comment('Creating "AllinOne" archive');
     create_allinone($root.'/target', $options['version']);
@@ -71,6 +74,8 @@ function run_one_nightly($task, $args)
     chdir($cwd);
 }
 
+
+
 function create_allinone($target, $version)
 {
     $name = 'Midgard_AllinOne-'.$version;
@@ -91,10 +96,7 @@ function create_allinone($target, $version)
 function create_package($target, $package, $version, $options)
 {
     pake_echo_comment('--> Downloading');
-    pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
-              $target.'/'.$package.'.tar.gz',
-              array('override' => true)
-    );
+    _download_package($target, $package);
 
     pake_echo_comment('--> Extracting');
     _extract_package($target, $package);
@@ -111,6 +113,77 @@ function create_package($target, $package, $version, $options)
     }
 
     call_user_func($func, $target, $version, $options);
+}
+
+function create_midgardmvc_package($target, $version, $options)
+{
+    $mvc_dir = $target.'/midgard_mvc';
+
+    pake_mkdirs($mvc_dir);
+
+    pake_echo_comment('Getting mvc-components');
+    foreach ($options['mvc_packages'] as $package)
+    {
+        _download_package($target, $package);
+        _extract_package($target, $package);
+
+        pake_sh('mv '.escapeshellarg($target.'/'.$package).' '.escapeshellarg($mvc_dir.'/'.$package));
+    }
+
+    pake_echo_comment('Creating runtime-bundle');
+    _create_runtime_bundle($target, 'simple-bundle');
+
+    pake_echo_comment('Adding dependencies');
+    foreach ($options['mvc_dependencies'] as $file)
+    {
+        pake_copy('http://pear.indeyets.pp.ru/get/'.$file, $mvc_dir.'/'.$file);
+    }
+
+    chdir($target);
+    pake_sh('tar czf '.escapeshellarg('midgard_mvc.tar.gz').' '.escapeshellarg('midgard_mvc'));
+    pake_remove_dir('midgard_mvc');
+}
+
+
+
+function _create_runtime_bundle($target, $name)
+{
+    pake_remove_dir($target.'/'.$name);
+    pake_remove(pakeFinder::type('any')->name($name.'.zip')->maxdepth(0), $target);
+
+    pake_mkdirs($target.'/'.$name);
+    pake_mkdirs($target.'/tmp');
+
+    // 1. get PHPTAL tarball and write it as PHPTAL folder and PHPTAL.php
+    pake_copy('http://phptal.org/files/PHPTAL-1.2.1.zip', $target.'/tmp/phptal.zip');
+    pakeArchive::extractArchive($target.'/tmp/phptal.zip', $target.'/tmp', true);
+
+    pake_mkdirs($target.'/'.$name.'/PHPTAL');
+    pake_mirror(pakeFinder::type('any')->ignore_version_control(), $target.'/tmp/PHPTAL-1.2.1/PHPTAL', $target.'/'.$name.'/PHPTAL');
+    pake_mirror('PHPTAL.php', $target.'/tmp/PHPTAL-1.2.1', $target.'/'.$name);
+
+    pake_remove_dir($target.'/tmp');
+
+    // 2. Copy components inside
+    pake_sh('cp -R '.escapeshellarg($target.'/midgard_mvc/').'* '.escapeshellarg($target.'/'.$name.'/'));
+
+    // 3. Create manifest
+    $data = array('type' => 'runtime bundle', 'name' => $name);
+    pakeYaml::emitFile($data, $target.'/'.$name.'/manifest.yml');
+
+    // 4. pack archive
+    $finder = pakeFinder::type('any')->ignore_version_control();
+    pakeArchive::createArchive($finder, $target.'/'.$name, $target.'/midgard_mvc/'.$name.'.zip');
+
+    pake_remove_dir($target.'/'.$name);
+}
+
+function _download_package($target, $package)
+{
+    pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
+              $target.'/'.$package.'.tar.gz',
+              array('override' => true)
+    );
 }
 
 function _extract_package($target, $package)

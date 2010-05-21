@@ -29,6 +29,7 @@ function run_all_nightly()
     $options = pakeYaml::loadFile($root.'/options.yaml');
 
     pake_mkdirs($root.'/target');
+    pake_mkdirs($root.'/target/obs');
 
     $cwd = getcwd();
     foreach ($packages as $package)
@@ -41,6 +42,9 @@ function run_all_nightly()
 
     pake_echo_comment('Creating "AllinOne" archive');
     create_allinone($root.'/target', $options['version']);
+
+    chdir($root);
+    pake_sh(escapeshellarg($_SERVER['_']).' obs_upload.php');
 
     chdir($cwd);
 }
@@ -58,6 +62,8 @@ function run_one_nightly($task, $args)
     $cwd = getcwd();
 
     pake_mkdirs($root.'/target');
+    pake_mkdirs($root.'/target/obs');
+
     create_package($root.'/target', $package, $options['version'], $options);
 
     chdir($cwd);
@@ -90,6 +96,9 @@ function create_package($target, $package, $version, $options)
 
     pake_echo_comment('--> Extracting');
     _extract_package($target, $package);
+
+    pake_mkdirs($target.'/obs/'.$package);
+    pake_sh('mv '.escapeshellarg($target.'/'.$package.'/dists').' '.escapeshellarg($target.'/obs/'.$package.'/'));
 
     pake_echo_comment('--> Processing');
     $func = '_process_'.str_replace('-', '_', $package);

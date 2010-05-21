@@ -43,9 +43,10 @@ function run_all_nightly()
     pake_echo_comment('Creating "AllinOne" archive');
     create_allinone($root.'/target', $options['version']);
 
+    pake_echo_comment("Uploading to OBS…");
     chdir($root);
     $php_exec = (isset($_SERVER['_']) and substr($_SERVER['_'], -4) != 'pake') ? $_SERVER['_'] : pake_which('php');
-    pake_sh(escapeshellarg($php_exec).' obs_upload.php');
+    pake_sh(escapeshellarg($php_exec).' obs_upload.php', true);
 
     chdir($cwd);
 }

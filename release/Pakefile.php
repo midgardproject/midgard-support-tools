@@ -44,7 +44,8 @@ function run_all_nightly()
     create_allinone($root.'/target', $options['version']);
 
     chdir($root);
-    pake_sh(escapeshellarg($_SERVER['_']).' obs_upload.php');
+    $php_exec = (isset($_SERVER['_']) and substr($_SERVER['_'], -4) != 'pake') ? $_SERVER['_'] : pake_which('php');
+    pake_sh(escapeshellarg($php_exec).' obs_upload.php');
 
     chdir($cwd);
 }

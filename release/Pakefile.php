@@ -1,7 +1,13 @@
 <?php
 
-pake_desc('Grab latest snapshot of projects from github, produce packages and deplot to OBS');
-pake_task('nightly');
+pake_desc('Grab latest snapshot of projects from github, produce packages and deploy to OBS');
+pake_task('all_nightly', 'clean');
+
+pake_desc('Grab latest snapshot of project from github, produce package and deploy to OBS. usage: pake one_nightly packagename');
+pake_task('one_nightly', 'clean');
+
+pake_desc('Remove temporary files');
+pake_task('clean');
 
 pake_task('default');
 function run_default()
@@ -9,7 +15,13 @@ function run_default()
     pakeApp::get_instance()->display_tasks_and_comments();
 }
 
-function run_nightly()
+function run_clean()
+{
+    $target = dirname(__FILE__).'/target';
+    pake_remove_dir($target);
+}
+
+function run_all_nightly()
 {
     $root = dirname(__FILE__);
 
@@ -17,37 +29,41 @@ function run_nightly()
     $options = pakeYaml::loadFile($root.'/options.yaml');
 
     pake_mkdirs($root.'/target');
-    pake_remove(pakeFinder::type('any'), $root.'/target');
 
     $cwd = getcwd();
     foreach ($packages as $package)
     {
         pake_echo_comment($package);
-
-        pake_echo_comment('--> Downloading');
-        pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
-                  $root.'/target/'.$package.'.tar.gz',
-                  array('override' => true)
-        );
-
-        pake_echo_comment('--> Extracting');
-        _extract_package($root.'/target', $package);
-
-        pake_echo_comment('--> Processing');
-        $func = '_process_'.str_replace('-', '_', $package);
-        call_user_func($func, $root.'/target', $options['version'], $options);
+        create_package($root.'/target', $package, $options['version'], $options);
     }
 
     // TODO: midgardmvc
-    // TODO: midgard_runtime
 
     pake_echo_comment('Creating "AllinOne" archive');
-    _create_allinone($root.'/target', $options['version']);
+    create_allinone($root.'/target', $options['version']);
 
     chdir($cwd);
 }
 
-function _create_allinone($target, $version)
+function run_one_nightly($task, $args)
+{
+    if (!isset($args[0]))
+        throw new pakeException('usage: pake one_nightly packagename');
+
+    $package = $args[0];
+
+    $root = dirname(__FILE__);
+    $options = pakeYaml::loadFile($root.'/options.yaml');
+
+    $cwd = getcwd();
+
+    pake_mkdirs($root.'/target');
+    create_package($root.'/target', $package, $options['version'], $options);
+
+    chdir($cwd);
+}
+
+function create_allinone($target, $version)
 {
     $name = 'Midgard_AllinOne-'.$version;
     $dir = $target.'/'.$name;
@@ -62,6 +78,28 @@ function _create_allinone($target, $version)
     chdir($target);
     pake_sh('tar czf '.escapeshellarg($dir.'.tar.gz').' '.escapeshellarg($name));
     pake_remove_dir($dir);
+}
+
+function create_package($target, $package, $version, $options)
+{
+    pake_echo_comment('--> Downloading');
+    pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
+              $target.'/'.$package.'.tar.gz',
+              array('override' => true)
+    );
+
+    pake_echo_comment('--> Extracting');
+    _extract_package($target, $package);
+
+    pake_echo_comment('--> Processing');
+    $func = '_process_'.str_replace('-', '_', $package);
+
+    if (!function_exists($func))
+    {
+        throw new pakeException('Can not find function for processing "'.$package.'"');
+    }
+
+    call_user_func($func, $target, $version, $options);
 }
 
 function _extract_package($target, $package)
@@ -118,12 +156,30 @@ function _process_midgard_python($target, $version)
 function _process_midgard_php5($target, $version)
 {
     chdir($target);
-    $new_dirname = $target.'/php5-midgard2-'.$version;
+
+    $name = 'php5-midgard2-'.$version;
+    $new_dirname = $target.'/'.$name;
 
     pake_sh('mv '.escapeshellarg($target.'/midgard-php5').' '.escapeshellarg($new_dirname));
-    pake_sh('tar czf '.escapeshellarg($new_dirname.'.tar.gz').' '.escapeshellarg('php5-midgard2-'.$version));
+    pake_sh('tar czf '.escapeshellarg($new_dirname.'.tar.gz').' '.escapeshellarg($name));
     pake_remove_dir($new_dirname);
 }
+
+function _process_midgard_runtime($target, $version)
+{
+    chdir($target);
+
+    $name = 'midgard2-runtime-'.$version;
+    $new_dirname = $target.'/'.$name;
+
+    pake_sh('mv '.escapeshellarg($target.'/midgard-runtime').' '.escapeshellarg($new_dirname));
+    pake_sh('tar czf '.escapeshellarg($new_dirname.'.tar.gz').' '.escapeshellarg($name));
+    pake_remove_dir($new_dirname);
+}
+
+
+
+// helpers follow this line
 
 function preg_replace_in_file($pattern, $replacement, $filename)
 {

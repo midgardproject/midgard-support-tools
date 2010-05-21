@@ -41,7 +41,27 @@ function run_nightly()
     // TODO: midgardmvc
     // TODO: midgard_runtime
 
+    pake_echo_comment('Creating "AllinOne" archive');
+    _create_allinone($root.'/target', $options['version']);
+
     chdir($cwd);
+}
+
+function _create_allinone($target, $version)
+{
+    $name = 'Midgard_AllinOne-'.$version;
+    $dir = $target.'/'.$name;
+
+    pake_mkdirs($dir);
+
+    foreach (pakeFinder::type('file')->name('*.tar.gz')->in($target) as $file)
+    {
+        pake_sh('tar xf '.escapeshellarg($file).' -C '.escapeshellarg($dir));
+    }
+
+    chdir($target);
+    pake_sh('tar czf '.escapeshellarg($dir.'.tar.gz').' '.escapeshellarg($name));
+    pake_remove_dir($dir);
 }
 
 function _extract_package($target, $package)

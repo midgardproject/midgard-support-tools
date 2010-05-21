@@ -1,0 +1,9 @@
+#! /bin/sh
+
+. /usr/share/debconf/confmodule
+
+PKG=`ls /usr/share/appserver/AppServer*.tgz`
+
+for PKG in $PKGS; do
+	pear install -f /usr/share/pake/$PKG
+done

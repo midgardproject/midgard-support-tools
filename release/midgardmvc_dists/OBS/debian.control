@@ -1,0 +1,92 @@
+Source: midgard2-mvc
+Section: web
+Priority: optional
+Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
+Build-Depends: 
+Standards-Version: 3.2.1
+
+Package: midgard2-mvc
+Section: web
+Architecture: any
+Depends: midgard2-mvc-core
+Description: Midgard2 MVC meta package
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: midgard2-mvc-core
+Section: web
+Architecture: any
+Depends: php5-midgard (>=9.09.99), appserver
+Suggests: php5-syck
+Description: Midgard2 MVC core
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: midgard2-mvc-asgard
+Section: web
+Architecture: any
+Depends: php-pear, midgard2-mvc-core
+Description: Midgard2 MVC, Asgard admin interface
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: midgard2-mvc-xsspreventer
+Section: web
+Architecture: any
+Depends: php-pear, midgard2-mvc-core
+Description: Midgard2 MVC, cross site scripting guard
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: midgard2-mvc-forms
+Section: web
+Architecture: any
+Depends: php-pear, midgard2-mvc-core
+Description: Midgard2 MVC, Html forms generator and widgets collection
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: pake
+Section: web
+Architecture: any
+Depends: php-pear
+Description: Pake, make like utility written in PHP
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: appserver
+Section: web
+Architecture: any
+Depends: php-pear, pake
+Description: Appserver
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+

@@ -117,7 +117,8 @@ function create_package($target, $package, $version, $options)
 
 function create_midgardmvc_package($target, $version, $options)
 {
-    $mvc_dir = $target.'/midgard_mvc';
+    $name = 'midgardmvc_core-'.$version;
+    $mvc_dir = $target.'/'.$name;
 
     pake_mkdirs($mvc_dir);
 
@@ -131,7 +132,7 @@ function create_midgardmvc_package($target, $version, $options)
     }
 
     pake_echo_comment('Creating runtime-bundle');
-    _create_runtime_bundle($target, 'simple-bundle');
+    _create_runtime_bundle($target, 'simple-bundle', $mvc_dir);
 
     pake_echo_comment('Adding dependencies');
     foreach ($options['mvc_dependencies'] as $file)
@@ -140,13 +141,16 @@ function create_midgardmvc_package($target, $version, $options)
     }
 
     chdir($target);
-    pake_sh('tar czf '.escapeshellarg('midgard_mvc.tar.gz').' '.escapeshellarg('midgard_mvc'));
-    pake_remove_dir('midgard_mvc');
+    pake_sh('tar czf '.escapeshellarg($mvc_dir.'.tar.gz').' '.escapeshellarg($name));
+    pake_remove_dir($mvc_dir);
+
+    pake_mkdirs($target.'/obs/midgard_mvc');
+    pake_sh('cp -R '.escapeshellarg(dirname(__FILE__).'/midgardmvc_dists').' '.escapeshellarg($target.'/obs/midgard_mvc/dists'));
 }
 
 
 
-function _create_runtime_bundle($target, $name)
+function _create_runtime_bundle($target, $name, $mvc_dir)
 {
     pake_remove_dir($target.'/'.$name);
     pake_remove(pakeFinder::type('any')->name($name.'.zip')->maxdepth(0), $target);
@@ -165,7 +169,7 @@ function _create_runtime_bundle($target, $name)
     pake_remove_dir($target.'/tmp');
 
     // 2. Copy components inside
-    pake_sh('cp -R '.escapeshellarg($target.'/midgard_mvc/').'* '.escapeshellarg($target.'/'.$name.'/'));
+    pake_sh('cp -R '.escapeshellarg($mvc_dir.'/').'* '.escapeshellarg($target.'/'.$name.'/'));
 
     // 3. Create manifest
     $data = array('type' => 'runtime bundle', 'name' => $name);
@@ -173,7 +177,7 @@ function _create_runtime_bundle($target, $name)
 
     // 4. pack archive
     $finder = pakeFinder::type('any')->ignore_version_control();
-    pakeArchive::createArchive($finder, $target.'/'.$name, $target.'/midgard_mvc/'.$name.'.zip');
+    pakeArchive::createArchive($finder, $target.'/'.$name, $mvc_dir.'/'.$name.'.zip');
 
     pake_remove_dir($target.'/'.$name);
 }

@@ -1,0 +1,15 @@
+#! /bin/sh
+
+. /usr/share/debconf/confmodule
+
+PKGS=`ls /usr/share/midgardmvc_core/pake*tgz`
+for PKG in $PKGS; do
+	pear install -f /usr/share/midgardmvc_core/{$PKG}
+done
+
+PKGS=`ls /usr/share/midgardmvc_core/Appserver*tgz`
+for PKG in $PKGS; do
+	pear install -f /usr/share/midgardmvc_installer/{$PKG}
+done
+
+exit 0

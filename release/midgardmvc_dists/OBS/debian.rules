@@ -1,0 +1,95 @@
+#! /usr/bin/make -f
+
+#export DH_VERBOSE=1
+export DH_COMPAT=4
+export DH_OPTIONS
+
+DEB_BUILD_ARCH   ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+build: build-stamp
+build-stamp: configure-stamp
+	dh_testdir
+	#$(MAKE)
+	touch $@
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch $@
+
+clean:
+	rm -rf build.stamp configure-stamp
+	rm -rf debian/tmp	
+	rm -rf debian/pake
+	rm -rf debian/appserver
+	rm -rf debian/midgardmvc_core
+	rm -rf debian/midgard2-mvc
+	rm -rf debian/midgard2-mvc-core
+	rm -rf debian/midgard2-mvc-xsspreventer
+	rm -rf debian/midgard2-mvc-asgard
+	rm -rf debian/midgard2-mvc-forms
+
+install: DH_OPTIONS=
+install: build
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	# core
+	cp -r build-stamp debian/midgard2-mvc-core/usr/share/midgardmvc_core/ 
+	cp -r midgardmvc_core/config debian/midgard2-mvc-core/usr/share/midgardmvc_core/  
+	cp midgardmvc_core/exceptionhandler.php debian/midgard2-mvc-core/usr/share/midgardmvc_core/ 
+	cp -r midgardmvc_core/helpers  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp midgardmvc_core/interface.php  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp midgardmvc_core/manifest.yml  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/services  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/templates debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/component  debian/midgard2-mvc-core/usr/share/midgardmvc_core/  
+	cp -r midgardmvc_core/configuration  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/controllers      debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/documentation  debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp midgardmvc_core/framework.php         debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/httpd    debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/locale         debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/python        debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/static    debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	cp -r midgardmvc_core/tests debian/midgard2-mvc-core/usr/share/midgardmvc_core/
+	# asgard
+	cp -r midgardmvc_admin_asgard/configuration  debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	cp -r midgardmvc_admin_asgard/controllers  debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	cp midgardmvc_admin_asgard/interface.php  debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	cp midgardmvc_admin_asgard/manifest.yml  debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	cp -r midgardmvc_admin_asgard/static  debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	cp -r midgardmvc_admin_asgard/templates debian/midgard2-mvc-asgard/usr/share/midgardmvc_admin_asgard/
+	# xsspreventer
+	cp midgardmvc_helper_xsspreventer/*.php  debian/midgard2-mvc-xsspreventer/usr/share/midgardmvc_helper_xsspreventer/
+	cp midgardmvc_helper_xsspreventer/manifest.yml  debian/midgard2-mvc-xsspreventer/usr/share/midgardmvc_helper_xsspreventer/
+	cp -r midgardmvc_helper_xsspreventer/tests debian/midgard2-mvc-xsspreventer/usr/share/midgardmvc_helper_xsspreventer/
+	# forms
+	cp -r midgardmvc_helper_forms/field  debian/midgard2-mvc-forms/usr/share/midgardmvc_helper_forms/
+	cp midgardmvc_helper_forms/*.php  debian/midgard2-mvc-forms/usr/share/midgardmvc_helper_forms/
+	cp midgardmvc_helper_forms/manifest.yml  debian/midgard2-mvc-forms/usr/share/midgardmvc_helper_forms/
+	cp -r midgardmvc_helper_forms/widget  debian/midgard2-mvc-forms/usr/share/midgardmvc_helper_forms/
+
+	# pear
+	cp pake*.tgz debian/pake/usr/share/pake/
+	cp AppServer*.tgz debian/appserver/usr/share/appserver/ 
+	dh_install
+
+binary-indep: 
+	DH_OPTIONS=-i
+
+binary-indep: DH_OPTIONS=-a
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary:	binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep install configure build clean

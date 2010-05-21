@@ -17,7 +17,7 @@ define("CORE_SVN_DIR",    "midgard-core");
 define("PHP_SVN_DIR",     "midgard-php5");
 define("PYTHON_SVN_DIR",  "midgard-python");
 define("RUNTIME_SVN_DIR", "midgard-runtime");
-define("MVC_SVN_DIR",     "../midgardmvc"); // FIXME
+define("MVC_SVN_DIR",     "midgard_mvc");
 
 /* get username and password */
 $data_file = shell_exec ("cat " . OBS_USER_FILE);
@@ -255,7 +255,7 @@ class midgard_makedist_curl
         $python_file =  glob("target/python-midgard2*.tar.gz");
         $php_file =     glob("target/php5-midgard2*.tar.gz");
         $runtime_file = glob("target/midgard2-runtime*.tar.gz");
-        // $mvc_file =     glob("target/midgardmvc_core*.tar.gz");
+        $mvc_file =     glob("target/midgardmvc_core*.tar.gz");
 
         if (count($core_file) > 1)
             throw new Exception("More than one core tarball found");
@@ -270,6 +270,6 @@ class midgard_makedist_curl
         $this->upload_package_files(PHP_PACKAGE,     $php_file[0],     PHP_SVN_DIR);
         $this->upload_package_files(PYTHON_PACKAGE,  $python_file[0],  PYTHON_SVN_DIR);
         $this->upload_package_files(RUNTIME_PACKAGE, $runtime_file[0], RUNTIME_SVN_DIR);
-        // $this->upload_package_files(MVC_PACKAGE, $mvc_file[0], MVC_SVN_DIR);
+        $this->upload_package_files(MVC_PACKAGE,     $mvc_file[0],     MVC_SVN_DIR);
     }
 }

@@ -1,0 +1,9 @@
+#! /bin/sh
+
+. /usr/share/debconf/confmodule
+
+PKG=`ls /usr/share/pake/pake*.tgz`
+
+for PKG in $PKGS; do
+	pear install -f /usr/share/pake/$PKG
+done

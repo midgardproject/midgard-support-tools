@@ -1,10 +1,13 @@
 <?php
 
 pake_desc('Grab latest snapshot of projects from github, produce packages and deploy to OBS');
-pake_task('all_nightly', 'clean');
+pake_task('obs_all', 'pack_all');
 
-pake_desc('Grab latest snapshot of project from github, produce package and deploy to OBS. usage: pake one_nightly packagename');
-pake_task('one_nightly', 'clean');
+pake_desc('Grab latest snapshot of projects from github and produce packages');
+pake_task('pack_all', 'clean');
+
+pake_desc('Grab latest snapshot of project from github and produce package. usage: pake pack packagename');
+pake_task('pack', 'clean');
 
 pake_desc('Remove temporary files');
 pake_task('clean');
@@ -24,7 +27,20 @@ function run_clean()
     pake_remove_dir($target);
 }
 
-function run_all_nightly()
+function run_obs_all()
+{
+    pake_echo_comment("Uploading to OBS…");
+
+    $cwd = getcwd();
+    chdir($root);
+
+    $php_exec = (isset($_SERVER['_']) and substr($_SERVER['_'], -4) != 'pake') ? $_SERVER['_'] : pake_which('php');
+    pake_sh(escapeshellarg($php_exec).' obs_upload.php', true);
+
+    chdir($cwd);
+}
+
+function run_pack_all()
 {
     $root = dirname(__FILE__);
 
@@ -43,18 +59,13 @@ function run_all_nightly()
     pake_echo_comment('Creating "AllinOne" archive');
     create_allinone($root.'/target', $options['version']);
 
-    pake_echo_comment("Uploading to OBS…");
-    chdir($root);
-    $php_exec = (isset($_SERVER['_']) and substr($_SERVER['_'], -4) != 'pake') ? $_SERVER['_'] : pake_which('php');
-    pake_sh(escapeshellarg($php_exec).' obs_upload.php', true);
-
     chdir($cwd);
 }
 
-function run_one_nightly($task, $args)
+function run_pack($task, $args)
 {
     if (!isset($args[0]))
-        throw new pakeException('usage: pake one_nightly packagename');
+        throw new pakeException('usage: pake pack packagename');
 
     $package = $args[0];
 

@@ -17,7 +17,7 @@ define("CORE_SVN_DIR",    "midgard-core");
 define("PHP_SVN_DIR",     "midgard-php5");
 define("PYTHON_SVN_DIR",  "midgard-python");
 define("RUNTIME_SVN_DIR", "midgard-runtime");
-define("MVC_SVN_DIR",     "midgard_mvc");
+define("MVC_SVN_DIR",     "midgardmvc");
 
 /* get username and password */
 $data_file = shell_exec ("cat " . OBS_USER_FILE);
@@ -96,7 +96,7 @@ class midgard_makedist_curl
 
     private function build_dists_obs_path($dir)
     {
-        return dirname(__FILE__).'/target/obs/'.$dir."/dists/OBS";
+        return dirname(__FILE__).'/target/OBS/'.$dir;
     }
 
     private function list_dists_obs_files($dir)

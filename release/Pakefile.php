@@ -31,9 +31,6 @@ function run_all_nightly()
     $options = pakeYaml::loadFile($root.'/options.yaml');
     $packages = $options['packages'];
 
-    pake_mkdirs($root.'/target');
-    pake_mkdirs($root.'/target/obs');
-
     $cwd = getcwd();
     foreach ($packages as $package)
     {
@@ -101,8 +98,7 @@ function create_package($target, $package, $version, $options)
     pake_echo_comment('--> Extracting');
     _extract_package($target, $package);
 
-    pake_mkdirs($target.'/obs/'.$package);
-    pake_sh('mv '.escapeshellarg($target.'/'.$package.'/dists').' '.escapeshellarg($target.'/obs/'.$package.'/'));
+    _copy_obs_dists($target, $package);
 
     pake_echo_comment('--> Processing');
     $func = '_process_'.str_replace('-', '_', $package);
@@ -144,11 +140,16 @@ function create_midgardmvc_package($target, $version, $options)
     pake_sh('tar czf '.escapeshellarg($mvc_dir.'.tar.gz').' '.escapeshellarg($name));
     pake_remove_dir($mvc_dir);
 
-    pake_mkdirs($target.'/obs/midgard_mvc');
-    pake_sh('cp -R '.escapeshellarg(dirname(__FILE__).'/dists/midgardmvc').' '.escapeshellarg($target.'/obs/midgard_mvc/dists'));
+    _copy_obs_dists($target, 'midgardmvc');
 }
 
 
+
+function _copy_obs_dists($target, $package)
+{
+    pake_mkdirs($target.'/OBS/'.$package);
+    pake_mirror(pakeFinder::type('any'), dirname(__FILE__).'/dists/'.$package.'/OBS', $target.'/OBS/'.$package);
+}
 
 function _create_runtime_bundle($target, $name, $mvc_dir)
 {
@@ -184,6 +185,7 @@ function _create_runtime_bundle($target, $name, $mvc_dir)
 
 function _download_package($target, $package)
 {
+    pake_mkdirs($target);
     pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
               $target.'/'.$package.'.tar.gz',
               array('override' => true)

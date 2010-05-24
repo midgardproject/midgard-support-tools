@@ -145,7 +145,7 @@ function create_midgardmvc_package($target, $version, $options)
     pake_remove_dir($mvc_dir);
 
     pake_mkdirs($target.'/obs/midgard_mvc');
-    pake_sh('cp -R '.escapeshellarg(dirname(__FILE__).'/midgardmvc_dists').' '.escapeshellarg($target.'/obs/midgard_mvc/dists'));
+    pake_sh('cp -R '.escapeshellarg(dirname(__FILE__).'/dists/midgardmvc').' '.escapeshellarg($target.'/obs/midgard_mvc/dists'));
 }
 
 

@@ -93,7 +93,7 @@ function create_allinone($target, $version)
 function create_package($target, $package, $version, $options)
 {
     pake_echo_comment('--> Downloading');
-    _download_package($target, $package);
+    _download_package($target, $package, $options['branch']);
 
     pake_echo_comment('--> Extracting');
     _extract_package($target, $package);
@@ -121,7 +121,7 @@ function create_midgardmvc_package($target, $version, $options)
     pake_echo_comment('Getting mvc-components');
     foreach ($options['mvc_packages'] as $package)
     {
-        _download_package($target, $package);
+        _download_package($target, $package, $options['branch']);
         _extract_package($target, $package);
 
         pake_sh('mv '.escapeshellarg($target.'/'.$package).' '.escapeshellarg($mvc_dir.'/'.$package));
@@ -183,10 +183,10 @@ function _create_runtime_bundle($target, $name, $mvc_dir)
     pake_remove_dir($target.'/'.$name);
 }
 
-function _download_package($target, $package)
+function _download_package($target, $package, $branch)
 {
     pake_mkdirs($target);
-    pake_copy('http://github.com/midgardproject/'.$package.'/tarball/master',
+    pake_copy('http://github.com/midgardproject/'.$package.'/tarball/'.$branch,
               $target.'/'.$package.'.tar.gz',
               array('override' => true)
     );

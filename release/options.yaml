@@ -1,4 +1,5 @@
 version: 10.05.99
+branch: master
 core_prefix: /usr/local
 packages:
   - midgard-core

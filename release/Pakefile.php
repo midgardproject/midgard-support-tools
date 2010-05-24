@@ -109,8 +109,6 @@ function create_package($target, $package, $version, $options)
     pake_echo_comment('--> Extracting');
     _extract_package($target, $package);
 
-    _copy_obs_dists($target, $package);
-
     pake_echo_comment('--> Processing');
     $func = '_process_'.str_replace('-', '_', $package);
 
@@ -150,17 +148,9 @@ function create_midgardmvc_package($target, $version, $options)
     chdir($target);
     pake_sh('tar czf '.escapeshellarg($mvc_dir.'.tar.gz').' '.escapeshellarg($name));
     pake_remove_dir($mvc_dir);
-
-    _copy_obs_dists($target, 'midgardmvc');
 }
 
 
-
-function _copy_obs_dists($target, $package)
-{
-    pake_mkdirs($target.'/OBS/'.$package);
-    pake_mirror(pakeFinder::type('any'), dirname(__FILE__).'/dists/'.$package.'/OBS', $target.'/OBS/'.$package);
-}
 
 function _create_runtime_bundle($target, $name, $mvc_dir)
 {

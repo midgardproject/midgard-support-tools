@@ -96,7 +96,7 @@ class midgard_makedist_curl
 
     private function build_dists_obs_path($dir)
     {
-        return dirname(__FILE__).'/target/OBS/'.$dir;
+        return dirname(__FILE__).'/dists/'.$dir.'/OBS/';
     }
 
     private function list_dists_obs_files($dir)

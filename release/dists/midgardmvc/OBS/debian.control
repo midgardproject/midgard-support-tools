@@ -66,7 +66,7 @@ Description: Midgard2 MVC, Html forms generator and widgets collection
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
-Package: pake
+Package: php5-pake
 Section: web
 Architecture: any
 Depends: php-pear
@@ -78,7 +78,7 @@ Description: Pake, make like utility written in PHP
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
-Package: appserver
+Package: php5-appserver
 Section: web
 Architecture: any
 Depends: php-pear, pake

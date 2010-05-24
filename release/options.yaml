@@ -1,5 +1,5 @@
-version: 10.05.99
-branch: master
+version: 10.05.0.99
+branch: ratatoskr
 core_prefix: /usr/local
 packages:
   - midgard-core

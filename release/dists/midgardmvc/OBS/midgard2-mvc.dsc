@@ -1,6 +1,6 @@
 Format: 1.0
 Source: midgard2-mvc
-Version: 9.09.99
+Version: 10.05.99
 Binary: midgard-data
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Architecture: 

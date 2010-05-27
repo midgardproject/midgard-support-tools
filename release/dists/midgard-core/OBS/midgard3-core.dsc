@@ -1,7 +1,7 @@
 Format: 1.0  
-Source: midgard2-core  
+Source: midgard3-core  
 Version: 10.05.99
-Binary: libmidgard2-2010, libmidgard2-dev, midgard2-common, midgard2-bin
+Binary: libmidgard3-2010, libmidgard3-dev, midgard3-common, midgard3-bin
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>  
 Architecture: any
 Standards-Version: 3.2.1  

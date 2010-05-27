@@ -208,7 +208,7 @@ function _extract_package($target, $package)
 function _process_midgard_core($target, $version, $options)
 {
     preg_replace_in_file(
-        '/('.preg_quote('AC_INIT([midgard2-core],[', '/').').*('.preg_quote('])', '/').')/',
+        '/('.preg_quote('AC_INIT([midgard3-core],[', '/').').*('.preg_quote('])', '/').')/',
         '${1}'.$version.'\2',
         $target.'/midgard-core/configure.in'
     );
@@ -222,7 +222,7 @@ function _process_midgard_core($target, $version, $options)
     }
 
     pake_sh('make dist');
-    $filename = 'midgard2-core-'.$version.'.tar.gz';
+    $filename = 'midgard3-core-'.$version.'.tar.gz';
     pake_rename($target.'/midgard-core/'.$filename, $target.'/'.$filename);
 
     chdir($target);
@@ -248,7 +248,7 @@ function _process_midgard_php5($target, $version)
 {
     chdir($target);
 
-    $name = 'php5-midgard2-'.$version;
+    $name = 'php5-midgard3-'.$version;
     $new_dirname = $target.'/'.$name;
 
     pake_sh('mv '.escapeshellarg($target.'/midgard-php5').' '.escapeshellarg($new_dirname));
@@ -260,7 +260,7 @@ function _process_midgard_runtime($target, $version)
 {
     chdir($target);
 
-    $name = 'midgard2-runtime-'.$version;
+    $name = 'midgard3-runtime-'.$version;
     $new_dirname = $target.'/'.$name;
 
     pake_sh('mv '.escapeshellarg($target.'/midgard-runtime').' '.escapeshellarg($new_dirname));

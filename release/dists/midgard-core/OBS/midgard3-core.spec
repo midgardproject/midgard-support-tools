@@ -1,4 +1,4 @@
-%define major_version 10.05.0
+%define major_version 10.05.99
 
 %define min_glib2 2.14
 %define min_libxml2 2.6
@@ -8,7 +8,7 @@
 %define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel
 %endif
 
-Name:           midgard2-core
+Name:           midgard3-core
 Version:        %{major_version}
 Release:        OBS
 Summary:        Midgard core library and tools
@@ -78,8 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-/bin/ls -1 %{_sysconfdir}/midgard2/conf.d/ | /bin/grep -v ^midgard\.conf\.example$ | while read file; do
-    %{_bindir}/midgard2-schema "$file" > /dev/null 2>&1
+/bin/ls -1 %{_sysconfdir}/midgard3/conf.d/ | /bin/grep -v ^midgard\.conf\.example$ | while read file; do
+    %{_bindir}/midgard3-schema "$file" > /dev/null 2>&1
 done
 exit 0
 
@@ -90,20 +90,20 @@ exit 0
 %defattr(-,root,root,-)
 %doc COPYING
 %{_libdir}/*.so.*
-%dir %{_sysconfdir}/midgard2
-%dir %{_sysconfdir}/midgard2/conf.d
-%config(noreplace,missingok) %{_sysconfdir}/midgard2/conf.d/*
+%dir %{_sysconfdir}/midgard3
+%dir %{_sysconfdir}/midgard3/conf.d
+%config(noreplace,missingok) %{_sysconfdir}/midgard3/conf.d/*
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/*
 %{_bindir}/*
 %{_mandir}/man1/*
-%dir %{_datadir}/midgard2
-%{_datadir}/midgard2/*
+%dir %{_datadir}/midgard3
+%{_datadir}/midgard3/*
 
 %files devel
 %defattr(-,root,root,-)
-%dir %{_includedir}/midgard2
-%dir %{_includedir}/midgard2/midgard
-%{_includedir}/midgard2/midgard/*
+%dir %{_includedir}/midgard3
+%dir %{_includedir}/midgard3/midgard
+%{_includedir}/midgard3/midgard/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 
@@ -116,13 +116,13 @@ exit 0
 - Initial OBS package: merged OBS specifics from 8.09.6-3.1
 
 * Tue Oct 27 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 9.03.99-1
-- Renamed package from midgard-core to midgard2-core
+- Renamed package from midgard-core to midgard3-core
 - Removed OpenSSL and MySQL from development requirements
 - Added Libgda to development requirements
 - Removed Flex from build requirements
 - Updated package description to include Python and Libgda
-- Changed midgard to midgard2 in directory and file names
-- Include files are now in midgard2/midgard
+- Changed midgard to midgard3 in directory and file names
+- Include files are now in midgard3/midgard
 - Use macros for glib2 and libxml2 minimum version requirements
 - GLib requirement is now >= 2.14 (tests require >= 2.16)
 - Added dbus-1/system.d/* to configuration files

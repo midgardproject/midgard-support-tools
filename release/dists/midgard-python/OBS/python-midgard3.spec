@@ -2,7 +2,7 @@
 
 %{!?python_sitearch: %global python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
-Name:           python-midgard2
+Name:           python-midgard3
 Version:        %{major_version}
 Release:        OBS
 Summary:        Python extension for Midgard
@@ -19,7 +19,7 @@ BuildRequires:  python-gobject2-devel
 %else
 BuildRequires:  pygobject2-devel
 %endif
-BuildRequires:  midgard2-core-devel >= %{major_version}
+BuildRequires:  midgard3-core-devel >= %{major_version}
 BuildRequires:  python-setuptools
 
 %description

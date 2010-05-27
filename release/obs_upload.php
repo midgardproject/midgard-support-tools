@@ -7,11 +7,11 @@ define("OBS_PROJECT",     "home:midgardproject:unstable");
 define("OBS_BASE_URL",    "https://api.opensuse.org/source/". rawurlencode (OBS_PROJECT) . "/");
 define("OBS_USER_FILE",   "~/.midgard/obs_user");
 
-define("CORE_PACKAGE",    "midgard2-core");
-define("PYTHON_PACKAGE",  "python-midgard2");
-define("PHP_PACKAGE",     "php5-midgard2");
-define("MVC_PACKAGE",     "midgard2-mvc");
-define("RUNTIME_PACKAGE", "midgard2-runtime");
+define("CORE_PACKAGE",    "midgard3-core");
+define("PYTHON_PACKAGE",  "python-midgard3");
+define("PHP_PACKAGE",     "php5-midgard3");
+define("MVC_PACKAGE",     "midgard3-mvc");
+define("RUNTIME_PACKAGE", "midgard3-runtime");
 
 define("CORE_SVN_DIR",    "midgard-core");
 define("PHP_SVN_DIR",     "midgard-php5");
@@ -251,10 +251,10 @@ class midgard_makedist_curl
     {
         chdir($dir);
 
-        $core_file =    glob("target/midgard2-core*.tar.gz");
-        $python_file =  glob("target/python-midgard2*.tar.gz");
-        $php_file =     glob("target/php5-midgard2*.tar.gz");
-        $runtime_file = glob("target/midgard2-runtime*.tar.gz");
+        $core_file =    glob("target/midgard3-core*.tar.gz");
+        $python_file =  glob("target/python-midgard3*.tar.gz");
+        $php_file =     glob("target/php5-midgard3*.tar.gz");
+        $runtime_file = glob("target/midgard3-runtime*.tar.gz");
         $mvc_file =     glob("target/midgardmvc_core*.tar.gz");
 
         if (count($core_file) > 1)

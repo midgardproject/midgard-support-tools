@@ -1,6 +1,6 @@
 Format: 1.0  
 Source: midgard3-core  
-Version: 10.05.99
+Version: 10.05.99-1
 Binary: libmidgard3-2010, libmidgard3-dev, midgard3-common, midgard3-bin
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>  
 Architecture: any

@@ -23,8 +23,8 @@ Build-Depends: cdbs (>= 0.4.41),
                libsoup2.4-dev,
                zlib1g-dev,
                scrollkeeper,
-               gobject-introspection,
-               libgirepository1.0-dev
+               gobject-introspection (>= 0.6.5), gobject-introspection-glib-2.0 | gobject-introspection ,
+               libgirepository1.0-dev (>= 0.6.5) | gobject-introspection-glib-2.0
 Build-Depends-Indep: gtk-doc-tools,
                      sgmltools-lite
 Standards-Version: 3.8.4

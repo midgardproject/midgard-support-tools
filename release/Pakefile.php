@@ -263,7 +263,9 @@ function _process_midgard_runtime($target, $version)
     $name = 'midgard2-runtime-'.$version;
     $new_dirname = $target.'/'.$name;
 
-    pake_sh('mv '.escapeshellarg($target.'/midgard-runtime').' '.escapeshellarg($new_dirname));
+    pake_sh('mv '.escapeshellarg($target.'/midgard-runtime/qt').' '.escapeshellarg($new_dirname));
+    pake_remove_dir($target.'/midgard-runtime');
+
     pake_sh('tar czf '.escapeshellarg($new_dirname.'.tar.gz').' '.escapeshellarg($name));
     pake_remove_dir($new_dirname);
 }

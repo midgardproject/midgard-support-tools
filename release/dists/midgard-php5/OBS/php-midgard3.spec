@@ -1,15 +1,15 @@
 %define major_version 10.05.99
-%define tar_name php5-midgard2
+%define tar_name php5-midgard3
 
 %global php_zendabiver %((echo 0; php -i 2>/dev/null | sed -n 's/^PHP Extension => //p') | tail -1)
 %define php_extdir %(php-config --extension-dir 2>/dev/null)
 
 %if 0%{?suse_version}
 %define php_confdir php5/conf.d
-%define rpm_name php5-midgard2
+%define rpm_name php5-midgard3
 %else
 %define php_confdir php.d
-%define rpm_name php-midgard2
+%define rpm_name php-midgard3
 %endif
 
 Name:           %{rpm_name}
@@ -24,10 +24,10 @@ Source0:        %{url}download/%{tar_name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  php-devel >= 5.2
-BuildRequires:  midgard2-core-devel >= %{major_version}
+BuildRequires:  midgard3-core-devel >= %{major_version}
 
 %if 0%{?suse_version}
-Provides:       php-midgard2 = %{version}-%{release}
+Provides:       php-midgard3 = %{version}-%{release}
 %else
 %if %{?php_zend_api}0
 Requires:       php(zend-abi) = %{php_zend_api}
@@ -66,8 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $(dirname $RPM_BUILD_ROOT)
 mkdir $RPM_BUILD_ROOT
 %endif
-install -D -m 755 .libs/midgard2.so $RPM_BUILD_ROOT%{php_extdir}/midgard2.so
-install -D -m 644 midgard2.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{php_confdir}/midgard2.ini
+install -D -m 755 .libs/midgard3.so $RPM_BUILD_ROOT%{php_extdir}/midgard3.so
+install -D -m 644 midgard3.ini $RPM_BUILD_ROOT%{_sysconfdir}/%{php_confdir}/midgard3.ini
 
 
 %clean
@@ -77,8 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc COPYING
-%{php_extdir}/midgard2.so
-%config(noreplace) %{_sysconfdir}/%{php_confdir}/midgard2.ini
+%{php_extdir}/midgard3.so
+%config(noreplace) %{_sysconfdir}/%{php_confdir}/midgard3.ini
 
 
 %changelog
@@ -86,10 +86,10 @@ rm -rf $RPM_BUILD_ROOT
 - Initial OBS package: merged OBS specifics from 8.09.6-1.1
 
 * Tue Oct 27 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 9.03.99-1
-- Renamed package from php-midgard to php-midgard2
-- Changed tar_name from php5-midgard to php5-midgard2
-- Build requirement is now for midgard2-core-devel
-- Changed midgard to midgard2 in file names
+- Renamed package from php-midgard to php-midgard3
+- Changed tar_name from php5-midgard to php5-midgard3
+- Build requirement is now for midgard3-core-devel
+- Changed midgard to midgard3 in file names
 - Updated package description to include event handling support
 - Changed minimum PHP version requirement from 5.1 to 5.2
 

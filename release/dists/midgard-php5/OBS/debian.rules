@@ -58,12 +58,12 @@ install: build
 	dh_installdirs
 	
 	# PHP5
-	mkdir -p debian/php5-midgard2${PHP5EXTENSIONDIR}
-	mkdir -p debian/php5-midgard2/usr/share/doc/php5-midgard2
-	cp debian/copyright debian/php5-midgard2/usr/share/doc/php5-midgard2/
-	cp debian/changelog debian/php5-midgard2/usr/share/doc/php5-midgard2/
-	cp midgard2.ini     debian/php5-midgard2/usr/share/doc/php5-midgard2/
-	cp midgard-php5-build/.libs/midgard2.so debian/php5-midgard2${PHP5EXTENSIONDIR}
+	mkdir -p debian/php5-midgard3${PHP5EXTENSIONDIR}
+	mkdir -p debian/php5-midgard3/usr/share/doc/php5-midgard3
+	cp debian/copyright debian/php5-midgard3/usr/share/doc/php5-midgard3/
+	cp debian/changelog debian/php5-midgard3/usr/share/doc/php5-midgard3/
+	cp midgard3.ini     debian/php5-midgard3/usr/share/doc/php5-midgard3/
+	cp midgard-php5-build/.libs/midgard3.so debian/php5-midgard3${PHP5EXTENSIONDIR}
 	
 # nothing to do
 binary-indep: DH_OPTIONS=-i
@@ -81,7 +81,7 @@ binary-arch: install
 	dh_fixperms
 	#dh_makeshlibs
 	dh_installdeb
-	dh_shlibdeps -L libmidgard2-2010
+	dh_shlibdeps -L libmidgard3-2010
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb

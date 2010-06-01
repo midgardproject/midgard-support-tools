@@ -3,7 +3,7 @@
 pake_desc('Grab latest snapshot of projects from github, produce packages and deploy to OBS');
 pake_task('obs_all', 'pack_all');
 
-pake_desc('Grab latest snapshot of projects from github and produce packages');
+pake_desc('Grab snapshot of projects (latest, or versioned) from github and produce packages. usage: pake pack_all [10.05.1]');
 pake_task('pack_all', 'clean');
 
 pake_desc('Grab latest snapshot of project from github and produce package. usage: pake pack packagename');
@@ -40,24 +40,35 @@ function run_obs_all()
     chdir($cwd);
 }
 
-function run_pack_all()
+function run_pack_all($task, $args)
 {
     $root = dirname(__FILE__);
 
     $options = pakeYaml::loadFile($root.'/options.yaml');
+
     $packages = $options['packages'];
+
+    if (isset($args[0]))
+    {
+        $version = $args[0];
+        $options['branch'] = $version; // override, to force download from tag
+    }
+    else
+    {
+        $version = $options['version'];
+    }
 
     $cwd = getcwd();
     foreach ($packages as $package)
     {
         pake_echo_comment($package);
-        create_package($root.'/target', $package, $options['version'], $options);
+        create_package($root.'/target', $package, $version, $options);
     }
 
-    create_midgardmvc_package($root.'/target', $options['version'], $options);
+    create_midgardmvc_package($root.'/target', $version, $options);
 
     pake_echo_comment('Creating "AllinOne" archive');
-    create_allinone($root.'/target', $options['version']);
+    create_allinone($root.'/target', $version);
 
     chdir($cwd);
 }

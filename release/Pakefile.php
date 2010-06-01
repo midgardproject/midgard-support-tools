@@ -145,6 +145,13 @@ function create_midgardmvc_package($target, $version, $options)
         _extract_package($target, $package);
 
         pake_sh('mv '.escapeshellarg($target.'/'.$package).' '.escapeshellarg($mvc_dir.'/'.$package));
+
+        // fix version-number
+        $manifest_file = $mvc_dir.'/'.$package.'/manifest.yml';
+
+        $manifest = pakeYaml::loadFile($manifest_file);
+        $manifest['version'] = $version;
+        pakeYaml::emitFile($manifest, $manifest_file);
     }
 
     pake_echo_comment('Creating runtime-bundle');

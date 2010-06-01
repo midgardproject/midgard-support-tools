@@ -77,12 +77,22 @@ version number
   * upload tarballs to OBS service
   * upload all files changed in dists/OBS
 
+* Upload source debian package to maemo extras-devel repository
+  * Download debian files (dsc, targ.gz, diff) to separate directory
+    (Files need to be downloaded from OBS package management project page)
+  * For each package run `dpkg-source -x PACKAGE_NAME`
+  * For each unpacked source run `dpkg-buildpackage -rfakeroot -sa -S`
+  * Upload generated source, diff and tar.gz files to extras-devel
+    (using dput or maemo packages web interface https://garage.maemo.org/extras-assistant/index.php)
+
 * Generate core docs (core/midgard/docs use gtk-doc) and upload them to midgard
   website
 
 * Generate PHP API bindings viewer and upload (apis/php5/docs/make_html.php)
   and upload them to midgard website.
 
+* FIXME (there should be only one place to set version)
+  Do version bump at least in core's configure.in file
 
 4. Announcements
 ----------------

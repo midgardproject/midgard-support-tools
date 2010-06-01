@@ -33,25 +33,31 @@ version number
 
 * On this temporary branch change version-numbers mentioned in code. In case of
   our example, it would mean:
-  change all occurrences of "10.05.99" with "10.05.1"
+  change all occurrences of "10.05.0.99" with "10.05.1"
   
-  this command will help you to locate all such occurrences:
+  this command will help you to do such replaces:
 
-        ack -a '10\.05\.99'      # "ack-grep" instead of "ack" on debian/ubuntu
+        rpl -R '10.05.0.99' '10.05.1' .
 
 
 * commit changes
 
         git commit -a -m 'bump version'
 
-* create tag and remove temporary branch
+* create tag, return to generation-branch and remove temporary branch
 
         git tag 10.05.1
         git checkout ratatoskr
         git branch -d 10.05.1-tmp
 
-* push tag to github
+* change version-numbers in generation-branch and commit
 
+        rpl -R '10.05.0.99' '10.05.1.99' .
+        git commit -a -m 'bump version'
+
+* push changes to github
+
+        git push
         git push --tags
 
 * Create new version-tag in github's issue-tracker "10.05.2"
@@ -91,8 +97,6 @@ version number
 * Generate PHP API bindings viewer and upload (apis/php5/docs/make_html.php)
   and upload them to midgard website.
 
-* FIXME (there should be only one place to set version)
-  Do version bump at least in core's configure.in file
 
 4. Announcements
 ----------------
@@ -153,6 +157,7 @@ Add the release name together with linked explanation to:
 
 - http://www.midgard-project.org/midcom-permalink-d528f84c55ef2299a96c8e9e3ccb5252
 
+
 5. Major releases
 -----------------
 
@@ -163,8 +168,6 @@ additional actions must be done:
   - It should contain at least screenshots, feature list, architecture
     diagram, and a more verbose and nicely formatted version of the
     announcement
-
   - This sub-site can be created already early on in the release cycle
     and kept up-to-date, as the final feature set of the release is clarified
-
   - It is important to note both developer-oriented and end-user features

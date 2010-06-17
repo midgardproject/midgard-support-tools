@@ -13,7 +13,7 @@ pake_desc('Remove temporary files');
 pake_task('clean');
 
 pake_task('default');
-
+pake_task('pack_mvc');
 
 
 function run_default()
@@ -90,6 +90,27 @@ function run_pack($task, $args)
 
     create_package($root.'/target', $package, $options['version'], $options);
 
+    chdir($cwd);
+}
+
+function run_pack_mvc($task, $args)
+{
+    $root = dirname(__FILE__);
+
+    $options = pakeYaml::loadFile($root.'/options.yaml');
+
+    if (isset($args[0]))
+    {
+        $version = $args[0];
+        $options['branch'] = $version; // override, to force download from tag
+    }
+    else
+    {
+        $version = $options['version'];
+    }
+
+    $cwd = getcwd();
+    create_midgardmvc_package($root.'/target', $version, $options);
     chdir($cwd);
 }
 

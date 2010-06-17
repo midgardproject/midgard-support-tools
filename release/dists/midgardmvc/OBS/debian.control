@@ -66,6 +66,18 @@ Description: Midgard2 MVC, Html forms generator and widgets collection
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
+Package: midgard2-runtime-bundle-simple
+Section: web
+Architecture: any
+Depends: php-pear, midgard2-mvc-admin, midgard2-mvc-forms, midgard2-mvc-xspreventer
+Description: Midgard2 MVC, simple bundle file for midgard2-runtime
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
 Package: php5-pake
 Section: web
 Architecture: any

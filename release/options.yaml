@@ -13,5 +13,5 @@ mvc_packages:
   - midgardmvc_helper_xsspreventer
 mvc_dependencies:
   - pake-1.4.1.tgz
-  - AppServer_backport52-0.2.1.tgz
-  - AppServer-0.2.1.tgz
+  - AppServer_backport52-0.2.2.tgz
+  - AppServer-0.2.2.tgz

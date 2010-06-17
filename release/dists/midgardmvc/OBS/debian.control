@@ -8,7 +8,7 @@ Standards-Version: 3.2.1
 Package: midgard2-mvc
 Section: web
 Architecture: any
-Depends: midgard2-mvc-core
+Depends: midgard2-mvc-admin, midgard2-mvc-xsspreventer, midgard2-mvc-forms
 Description: Midgard2 MVC meta package
  .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
@@ -20,7 +20,7 @@ Description: Midgard2 MVC meta package
 Package: midgard2-mvc-core
 Section: web
 Architecture: any
-Depends: php5-midgard (>=10.05.99), appserver
+Depends: php5-midgard (>=10.05.1), appserver
 Suggests: php5-syck
 Description: Midgard2 MVC core
  .
@@ -30,11 +30,11 @@ Description: Midgard2 MVC core
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
-Package: midgard2-mvc-asgard
+Package: midgard2-mvc-admin
 Section: web
 Architecture: any
 Depends: php-pear, midgard2-mvc-core
-Description: Midgard2 MVC, Asgard admin interface
+Description: Midgard2 MVC, admin interface
  .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both
@@ -66,7 +66,19 @@ Description: Midgard2 MVC, Html forms generator and widgets collection
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
-Package: pake
+Package: midgard2-runtime-bundle-simple
+Section: web
+Architecture: any
+Depends: php-pear, midgard2-mvc-admin, midgard2-mvc-forms, midgard2-mvc-xspreventer
+Description: Midgard2 MVC, simple bundle file for midgard2-runtime
+ .
+ Midgard2 is an Open Source Content Repository. It provides an object-oriented
+ and replicated environment for building data-intensive applications for both
+ web and the desktop. Midgard2 is built on the GNOME stack of libraries like
+ GLib and libgda. Communications between applications written in the different
+ languages happen over D-Bus.
+
+Package: php5-pake
 Section: web
 Architecture: any
 Depends: php-pear
@@ -78,7 +90,7 @@ Description: Pake, make like utility written in PHP
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
 
-Package: appserver
+Package: php5-appserver
 Section: web
 Architecture: any
 Depends: php-pear, pake

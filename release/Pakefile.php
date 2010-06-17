@@ -180,7 +180,9 @@ function _create_runtime_bundle($target, $name, $mvc_dir)
 
     // 1. get PHPTAL tarball and write it as PHPTAL folder and PHPTAL.php
     pake_copy('http://phptal.org/files/PHPTAL-1.2.1.zip', $target.'/tmp/phptal.zip');
-    pakeArchive::extractArchive($target.'/tmp/phptal.zip', $target.'/tmp', true);
+
+    // pakeArchive::extractArchive($target.'/tmp/phptal.zip', $target.'/tmp', true);
+    pake_sh('unzip '.escapeshellarg($target.'/tmp/phptal.zip').' -d '.escapeshellarg($target.'/tmp'));
 
     pake_mkdirs($target.'/'.$name.'/PHPTAL');
     pake_mirror(pakeFinder::type('any')->ignore_version_control(), $target.'/tmp/PHPTAL-1.2.1/PHPTAL', $target.'/'.$name.'/PHPTAL');

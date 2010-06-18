@@ -5,4 +5,4 @@ Architecture: any
 Version: 9.09.99
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Standards-Version: 3.2.1
-Build-Depends: debhelper (>= 3), libmidgard2-dev, zlib1g-dev, midgard2-common, libxml2-dev, libpam0g-dev, libxml2, libglib2.0-dev, libglib2.0-0, libdbus-1-dev, libdbus-glib-1-dev, libgda3-dev, libssl-dev, python-gobject-dev, cdbs, python-all-dev, python-setuptools
+Build-Depends: debhelper (>= 3), libmidgard2-dev, zlib1g-dev, midgard2-common, libxml2-dev, libpam0g-dev, libxml2, libglib2.0-dev, libglib2.0-0, libdbus-1-dev, libdbus-glib-1-dev, libssl-dev, python-gobject-dev, cdbs, python-all-dev, python-setuptools

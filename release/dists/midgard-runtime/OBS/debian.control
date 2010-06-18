@@ -6,12 +6,12 @@ Priority: optional
 Maintainer:  Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders: 
 Standards-Version: 3.2.1
-Build-Depends: debhelper, libmidgard2-dev, fakeroot, libqt4-dev, libsqlite3-dev, libphonon-dev, libxcb1-dev, qt4-qmake 
+Build-Depends: debhelper, libmidgard2-dev (>=10.05.99), fakeroot, libqt4-dev, libphonon-dev, libxcb1-dev, qt4-qmake 
 
 Package: midgard2-runtime
 Section: utils
 Architecture: any
-Depends: midgard2-common, lighttpd, php5-cgi
+Depends: midgard2-common (>=10.05.99), php5-cgi
 Conflicts: 
 Description: Midgard Content Repository - Runtime binary
  .

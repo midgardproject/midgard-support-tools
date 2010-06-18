@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/midgard2-runtime-installer /usr/share/midgard2-runtime-bundle-simple/simple-bundle.zip

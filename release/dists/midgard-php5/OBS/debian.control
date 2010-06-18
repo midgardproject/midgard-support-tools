@@ -10,8 +10,8 @@ Build-Depends: debhelper (>=3), php5-dev, libmidgard3-dev(>=10.05.99)
 Package: php5-midgard3
 Section: web
 Architecture: any
-Depends: php5-cli (>=5.2.0) | php5-cgi (>=5.2.0), php5-memcache, midgard2-common (>=10.05.99), ucf, ${shlibs:Depends}
-Suggests: libapache2-mod-php5 (>=5.2.0) | lighttpd | nginx
+Depends: php5-cli (>=5.2.0) | php5-cgi (>=5.2.0), midgard2-common (>=10.05.99), ucf, ${shlibs:Depends}
+Suggests: libapache2-mod-php5 (>=5.2.0) | lighttpd | nginx, php5-memcache
 Replaces: 
 Conflicts: 
 Recommends: 

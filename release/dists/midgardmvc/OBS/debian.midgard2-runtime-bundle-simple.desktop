@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=10.05.99
+Type=Application
+Name=midgard2-runtime-simple-bundle
+Exec=/usr/bin/midgard2-runtime-simple-bundle-run
+Icon=
+X-Window-Icon=
+X-Osso-Type=application/x-executable

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/midgard2-runtime ~/.midgard2/simple-bundle

@@ -1,1 +1,4 @@
 simple-bundle.zip usr/share/midgard2-runtime-bundle-simple
+debian/midgard2-runtime-simple-bundle-install usr/bin
+debian/midgard2-runtime-simple-bundle-run usr/bin
+debian/midgard2-runtime-simple-bundle.desktop usr/share/applications

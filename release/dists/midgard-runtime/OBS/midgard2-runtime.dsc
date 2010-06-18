@@ -5,4 +5,4 @@ Binary: midgard2-runtime
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>  
 Architecture: any
 Standards-Version: 3.2.1  
-Build-Depends: debhelper, fakeroot, libmidgard2-dev (>=10.05.1), libqt4-dev, libc6-dev, libc6, libphonon-dev, libxcb1-dev
+Build-Depends: debhelper, fakeroot, libmidgard2-dev (>=10.05.1), libqt4-dev, libc6-dev, libc6, libxcb1-dev

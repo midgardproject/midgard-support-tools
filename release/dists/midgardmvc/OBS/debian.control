@@ -20,7 +20,7 @@ Description: Midgard2 MVC meta package
 Package: midgard2-mvc-core
 Section: web
 Architecture: any
-Depends: php5-midgard (>=10.05.1), appserver
+Depends: php5-midgard (>=10.05.1), php5-appserver
 Suggests: php5-syck
 Description: Midgard2 MVC core
  .
@@ -93,7 +93,7 @@ Description: Pake, make like utility written in PHP
 Package: php5-appserver
 Section: web
 Architecture: any
-Depends: php-pear, pake
+Depends: php-pear, php5-pake
 Description: Appserver
  .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented

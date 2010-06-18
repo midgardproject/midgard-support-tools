@@ -1,3 +1,10 @@
+midgard2-mvc (10.05.1-1) unstable; urgency=low
+
+  * New upstream
+  * Included midgard2-runtime-bundle-simple package
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Fri, 18 Jun 2010 09:49:28 +0200
+
 midgard2-mvc (10.05.0-1) unstable; urgency=low
 
   * Rewritten rules file, so all files are distributed in pear directory

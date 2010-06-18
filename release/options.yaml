@@ -1,4 +1,4 @@
-version: 10.05.0.99
+version: 10.05.1
 branch: ratatoskr
 core_prefix: /usr/local
 packages:

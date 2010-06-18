@@ -62,7 +62,7 @@ binary-arch: install
 	dh_testroot
 	dh_installchangelogs
 	dh_installdocs
-	dh_link -pphp5-pake usr/bin/pake.php usr/bin/pake
+	dh_link -pphp5-pake usr/bin/pake.sh usr/bin/pake
 	dh_compress
 	dh_fixperms
 	dh_installdeb

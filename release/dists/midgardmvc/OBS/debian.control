@@ -69,7 +69,7 @@ Description: Midgard2 MVC, Html forms generator and widgets collection
 Package: midgard2-runtime-bundle-simple
 Section: web
 Architecture: any
-Depends: php-pear, midgard2-runtime, midgard2-mvc-admin, midgard2-mvc-forms, midgard2-mvc-xspreventer
+Depends: php5-cli, midgard2-runtime
 Description: Midgard2 MVC, simple bundle file for midgard2-runtime
  .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented

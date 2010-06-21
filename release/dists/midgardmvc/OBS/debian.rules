@@ -15,6 +15,17 @@ build-stamp: configure-stamp
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
+	# AppServer
+	tar -xzvf $(appserver_pear_pkg)
+	rm $(appserver_pear_pkg)
+	# Appserver backport
+	tar -xzvf $(appserver_backport_pear_pkg)
+	rm $(appserver_backport_pear_pkg)
+	# Pake 
+	tar -xzvf $(pake_pear_pkg)
+	# Hack
+	perl -p -i -e "s/\@PEAR_DIR\@/\/usr\/share\/php/g" pake*/pake.sh
+	rm $(pake_pear_pkg)
 	touch $@
 
 clean:

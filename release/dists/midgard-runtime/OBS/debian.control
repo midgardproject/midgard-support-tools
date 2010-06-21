@@ -11,7 +11,7 @@ Build-Depends: debhelper, libmidgard2-dev (>=10.05.99), fakeroot, libqt4-dev, li
 Package: midgard2-runtime
 Section: utils
 Architecture: any
-Depends: midgard2-common (>=10.05.99), php5-cli
+Depends: php5-midgard2 (>=10.05.99), php5-cli
 Conflicts: 
 Description: Midgard Content Repository - Runtime binary
  .

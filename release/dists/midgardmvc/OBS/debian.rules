@@ -24,7 +24,7 @@ configure-stamp:
 	# Pake 
 	tar -xzvf $(pake_pear_pkg)
 	# Hack
-	perl -p -i -e "s/\@PEAR_DIR\@/\/usr\/share\/php/g" pake*/pake.sh
+	perl -p -i -e "s/\@PEAR_DIR\@/\/usr\/share\/php/g" pake*/bin/pake.sh
 	rm $(pake_pear_pkg)
 	touch $@
 

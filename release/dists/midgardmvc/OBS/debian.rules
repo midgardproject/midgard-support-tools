@@ -31,9 +31,9 @@ configure-stamp:
 	rm $(appserver_backport_pear_pkg)
 	# Pake 
 	tar -xzvf $(pake_pear_pkg)
-	# Hack
-	perl -p -i -e "s/\@PEAR_DIR\@/\/usr\/share\/php/g" pake*/bin/pake.sh
 	rm $(pake_pear_pkg)
+	# Hack
+	perl -p -i -e "s/\@PEAR-DIR\@/\/usr\/share\/php/g" pake*/bin/pake.sh
 	touch $@
 
 clean:

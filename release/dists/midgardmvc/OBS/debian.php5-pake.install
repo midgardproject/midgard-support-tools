@@ -1,3 +1,3 @@
-pake*/bin/pake.php usr/bin
+pake*/bin/pake.php usr/share/php
 pake*/bin/pake.sh usr/bin
 pake*/lib/pake usr/share/php

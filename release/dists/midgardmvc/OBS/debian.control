@@ -20,7 +20,7 @@ Description: Midgard2 MVC meta package
 Package: midgard2-mvc-core
 Section: web
 Architecture: any
-Depends: php5-midgard (>=10.05.1), php5-appserver
+Depends: php5-midgard (>=10.05.99), php5-appserver
 Suggests: php5-syck
 Description: Midgard2 MVC core
  .

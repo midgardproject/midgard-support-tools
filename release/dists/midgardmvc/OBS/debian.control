@@ -93,7 +93,7 @@ Description: Pake, make like utility written in PHP
 Package: php5-appserver
 Section: web
 Architecture: any
-Depends: php-pear, php5-pake
+Depends: php-pear, php-pake | php5-pake
 Description: Appserver
  .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented

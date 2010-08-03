@@ -1,6 +1,6 @@
 Format: 1.0  
 Source: midgard2-core  
-Version: 10.05.1-1
+Version: 10.05.2-1
 Binary: libmidgard2-2010, libmidgard2-dev, midgard2-common, midgard2-bin
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>  
 Architecture: any

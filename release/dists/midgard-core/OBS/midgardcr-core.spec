@@ -1,4 +1,4 @@
-%define major_version 10.05.99
+%define major_version 10.11.0
 
 %define min_glib2 2.14
 %define min_libxml2 2.6
@@ -8,10 +8,10 @@
 %define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel
 %endif
 
-Name:           midgard3-core
+Name:           midgardcr-core
 Version:        %{major_version}
 Release:        OBS
-Summary:        Midgard core library and tools
+Summary:        Midgard Content Repository core library 
 
 Group:          System Environment/Base
 License:        LGPLv2+

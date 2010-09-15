@@ -1,6 +1,3 @@
 usr/share/midgard3/midgard_auth_types.xml
-usr/share/midgard3/MidgardObjects.xml
 etc/midgard3/conf.d/midgard.conf.example
-usr/share/midgard3/schema/README.txt
-usr/share/midgard3/views
 etc/dbus-1/system.d/midgard_dbus.conf

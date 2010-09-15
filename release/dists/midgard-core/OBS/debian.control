@@ -1,15 +1,15 @@
-Source: midgard3-core
+Source: midgardcr-core
 Section: libs
 Architecture: any
-Binary: libmidgard3-2010, libmidgard3-dev, midgard3-common, midgard3-bin
+Binary: libmidgardcr-2010, libmidgardcr-dev, midgard3-common
 Priority: optional
 Maintainer:  Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders: 
 Standards-Version: 3.2.1
 Homepage: http://www.midgard-project.org
-Build-Depends: debhelper (>=3), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, libc6, zlib1g-dev, midgard-libgda-4.0-dev | libgda-4.0-dev | libgda4-dev, gobject-introspection-freedesktop | gir1.0-freedesktop, gobject-introspection (>= 0.6.5), gobject-introspection-glib-2.0 | gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5) | gobject-introspection-glib-2.0, gobject-introspection-glib-2.0 | gir-repository-dev,  libgirepository1.0-dev, gir1.0-gda-4.0 
+Build-Depends: debhelper (>=3), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, libc6, zlib1g-dev, midgard-libgda-4.0-dev | libgda-4.0-dev | libgda4-dev, gobject-introspection-freedesktop | gir1.0-freedesktop, gobject-introspection (>= 0.6.5), gobject-introspection-glib-2.0 | gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5) | gobject-introspection-glib-2.0, gobject-introspection-glib-2.0 | gir-repository-dev,  libgirepository1.0-dev, gir1.0-gda-4.0 , valac, libvala-dev
 
-Package: libmidgard3-2010
+Package: libmidgardcr-2010
 Section: libs
 Architecture: any
 Depends: libglib2.0-0 (>=2.12), libxml2 (>=2.6.11), libdbus-glib-1-2, dbus, midgard-libgda-4.0-4 | libgda-4.0-4 | libgda4-4, libc6, ${shlibs:Depends}
@@ -17,67 +17,53 @@ Conflicts:
 Suggests: mysql-server
 Description: Midgard Content Repository - Runtime Library
  .
- Midgard3 is an Open Source Content Repository. It provides an object-oriented
+ MidgardCR is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
- web and the desktop. Midgard3 is built on the GNOME stack of libraries like 
+ web and the desktop. MidgardCR is built on the GNOME stack of libraries like 
  GLib and libgda. Communications between applications written in the different 
  languages happen over D-Bus.
 
-Package: libmidgard3-dev
+Package: libmidgardcr-dev
 Section: libdevel
 Architecture: any
-Depends: libmidgard3-2010 (>= ${source:Version}), libglib2.0-dev (>=2.12)
+Depends: libmidgardcr-2010 (>= ${source:Version}), libglib2.0-dev (>=2.12)
 Conflicts:
 Replaces: 
 Description: Midgard Content Repository - Development Files
  This package is required only if you are a developer and intend to build
- extensions for Midgard3. It contains the header files and static library.
+ extensions for MidgardCR. It contains the header files and static library.
  .
- Midgard3 is an Open Source Content Repository. It provides an object-oriented  
+ MidgardCR is an Open Source Content Repository. It provides an object-oriented  
  and replicated environment for building data-intensive applications for both  
- web and the desktop. Midgard3 is built on the GNOME stack of libraries like 
+ web and the desktop. MidgardCR is built on the GNOME stack of libraries like 
  GLib and libgda. Communications between applications written in the different 
  languages happen over D-Bus.
 
-Package: midgard3-common
+Package: midgardcr-common
 Section: utils
 Architecture: any
-Depends: libmidgard3-2010 (>= ${source:Version})
-Description: Midgard3 common files used by different midgard extensions
+Depends: libmidgardcr-2010 (>= ${source:Version})
+Description: MidgardCR common files used by different midgard extensions
  .
- Midgard3 is an Open Source Content Repository. It provides an object-oriented
+ MidgardCR is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both
- web and the desktop. Midgard3 is built on the GNOME stack of libraries like 
+ web and the desktop. MidgardCR is built on the GNOME stack of libraries like 
  GLib and libgda. Communications between applications written in the different 
  languages happen over D-Bus.
  .
- This package contains authentication and configuration files.
+ This package contains example configuration files.
 
-Package: midgard3-bin
+Package: gir1.0-midgardcr
 Section: utils
 Architecture: any
-Depends: libmidgard3-2010 (>= ${source:Version}), midgard3-common (>= ${source:Version}), libc6, ${shlibs:Depends}
-Description: Midgard3 common files used by different midgard extensions
+Depends: libmidgardcr-2010 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), libc6, ${shlibs:Depends}
+Description: MidgardCR - GObject Introspection
  .
- Midgard3 is an Open Source Content Repository. It provides an object-oriented
- and replicated environment for building data-intensive applications for both  
- web and the desktop. Midgard3 is built on the GNOME stack of libraries like 
- GLib and libgda. Communications between applications written in the different 
- languages happen over D-Bus.
- .
- This package contains command line tools and manuals.
-
-Package: gir1.0-midgard3
-Section: utils
-Architecture: any
-Depends: libmidgard3-2010 (>= ${source:Version}), midgard3-common (>= ${source:Version}), libc6, ${shlibs:Depends}
-Description: Midgard3 - GObject Introspection
- .
- Midgard3 is an Open Source Content Repository. It provides an object-oriented
+ MidgardCR is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both
- web and the desktop. Midgard3 is built on the GNOME stack of libraries like
+ web and the desktop. MidgardCR is built on the GNOME stack of libraries like
  GLib and libgda. Communications between applications written in the different
  languages happen over D-Bus.
  .
- This package contains introspection files for Midgard3.
+ This package contains introspection files for MidgardCR.
 

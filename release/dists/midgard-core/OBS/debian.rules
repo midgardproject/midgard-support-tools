@@ -64,7 +64,7 @@ binary-arch:install
 	dh_installchangelogs
 	dh_installman
 	dh_installpam --name=midgard2	
-	dpkg-gensymbols -plibmidgard2-2010 -d -Odebian/libmidgard2-2010.symbols -edebian/tmp/usr/lib/libmidgard2.so.2010 -v10.3
+	dpkg-gensymbols -plibmidgard2-2010 -d -Odebian/libmidgard2-2010.symbols -edebian/tmp/usr/lib/libmidgard2.so.2010 -v10.05
 	dh_makeshlibs -V
 	dh_shlibdeps -s
 	dh_strip

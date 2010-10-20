@@ -1,0 +1,69 @@
+#! /usr/bin/make -f
+
+PATH := /usr/bin:$(PATH)
+SBOX_REDIRECT_IGNORE := $(SBOX_REDIRECT_IGNORE):/usr/bin/python
+export PATH SBOX_REDIRECT_IGNORE
+
+#export DH_VERBOSE=1
+export DH_OPTIONS
+
+DEB_PYTHON_SYSTEM := pysupport
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/python-distutils.mk
+
+PYDEF=$(shell pyversions -d)
+PYVERS=$(shell pyversions -r)
+
+DEB_BUILD_ARCH   ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+
+build: build-stamp	
+build-stamp:
+	dh_testdir
+	set -e; \
+		for python in $(PYVERS); do \
+		$$python setup.py build; \
+	done
+	touch build-stamp
+
+clean::
+	dh_testdir
+	for python in $(PYVERS); do \
+		$$python setup.py clean; \
+	done
+	rm -rf build-stamp build
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	
+	set -e; \
+	for python in $(PYVERS); do \
+		$$python setup.py install --root=debian/python-midgard2; \
+	done
+	
+# nothing to do
+binary-indep: DH_OPTIONS=-i
+binary-indep:
+
+binary-indep: DH_OPTIONS=-a
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installdocs	
+	dh_installchangelogs
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps -L libmidgard2
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary:	binary-indep binary-arch 
+.PHONY: binary binary-arch binary-indep clean build

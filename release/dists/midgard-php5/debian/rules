@@ -42,8 +42,7 @@ clean:
 	rm -rf $(PHPIZE_CRUFT) conftest.c conftest
 #	rm -f build-stamp configure-stamp php_config.h
 	rm -f configure-midgard-php5-stamp build-midgard-php5-stamp
-	rm -rf midgard-php5-build
-	rm debian/substvars
+	rm -rf midgard-php5-build	
 	dh_clean
 
 install: DH_OPTIONS=

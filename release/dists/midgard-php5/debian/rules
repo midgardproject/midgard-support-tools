@@ -14,10 +14,6 @@ ltconfig ltmain.sh missing mkinstalldirs
 
 PHP5EXTENSIONDIR=`grep '\#define PHP_EXTENSION_DIR ' /usr/include/php5/main/build-defs.h|sed -e     's/\#define PHP_EXTENSION_DIR       //' | sed -s 's/"//g'`
 
-switch-arch:
-	sed -e 's/Architecture: any/Architecture: ${DEB_BUILD_ARCH}/g' debian/control > control.dummy
-	mv control.dummy debian/control
-
 build: build-midgard-php5-stamp
 
 build-midgard-php5-stamp: configure-midgard-php5-stamp
@@ -51,6 +47,7 @@ clean:
 
 install: DH_OPTIONS=
 install: build
+	echo "php:Depends=phpapi-$(php-config5 --phpapi)" >  debian/substvars 
 	dh_testdir
 	dh_testroot
 	dh_clean
@@ -85,5 +82,5 @@ binary-arch: install
 	dh_md5sums
 	dh_builddeb
 
-binary:	switch-arch binary-indep binary-arch
-.PHONY: switch-arch binary binary-arch binary-indep install configure build 
+binary:	binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep install configure build 

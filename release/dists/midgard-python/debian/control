@@ -2,7 +2,7 @@ Source: python-midgard2
 Section: python
 Priority: optional
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
-Standards-Version: 3.8.4
+Standards-Version: 3.9.1
 Homepage: http://www.midgard-project.org
 Build-Depends: debhelper (>=7.0), libmidgard2-dev (>=10.05.1.1), python-dev, python-gobject-dev, python-support, cdbs, python-all-dev, python-setuptools
 

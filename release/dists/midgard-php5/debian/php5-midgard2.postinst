@@ -1,5 +1,7 @@
 #!/bin/sh 
 
+#DEBHELPER#
+
 set -e
 
 if test "$1" = "configure"; then

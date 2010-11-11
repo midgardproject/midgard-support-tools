@@ -2,6 +2,8 @@
 
 set -e 
 
+#DEBHELPER#
+
 if test "$1" = "purge"; then
 	if which ucf >/dev/null 2>&1; then
 		ucf --purge /etc/php5/conf.d/midgard2.ini

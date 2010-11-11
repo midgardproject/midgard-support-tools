@@ -38,8 +38,7 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k
-	dh_installdirs
-	
+	dh_installdirs	
 	set -e; \
 	for python in $(PYVERS); do \
 		$$python setup.py install --root=debian/python-midgard2; \
@@ -60,7 +59,7 @@ binary-arch: install
 	dh_fixperms
 	dh_makeshlibs
 	dh_installdeb
-	dh_shlibdeps -L libmidgard2
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info -Llibmidgard2
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb

@@ -1,3 +1,11 @@
+midgard2-core (10.05.1.2-2) unstable; urgency=low
+
+  * Standards-Version set to newest one: 3.9.1
+  * Removed midgard-libgda4 from build and binary dependencies
+  * Removed libc6 from build dependencies. Closes: #603235
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Fri, 12 Nov 2010 10:33:31 +0100
+
 midgard2-core (10.05.1.2-1) unstable; urgency=low
 
   * Upload to mentors. Closes: #599106

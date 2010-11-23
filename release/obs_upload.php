@@ -7,7 +7,7 @@ define("OBS_PROJECT",     "home:midgardproject:unstable");
 define("OBS_BASE_URL",    "https://api.opensuse.org/source/". rawurlencode (OBS_PROJECT) . "/");
 define("OBS_USER_FILE",   "~/.midgard/obs_user");
 
-define("CORE_PACKAGE",    "midgard3-core");
+define("CORE_PACKAGE",    "midgardcr-core");
 define("PYTHON_PACKAGE",  "python-midgard3");
 define("PHP_PACKAGE",     "php5-midgard3");
 define("MVC_PACKAGE",     "midgard3-mvc");
@@ -251,7 +251,7 @@ class midgard_makedist_curl
     {
         chdir($dir);
 
-        $core_file =    glob("target/midgard3-core*.tar.gz");
+        $core_file =    glob("target/midgardcr-core*.tar.gz");
         /*$python_file =  glob("target/python-midgard3*.tar.gz");
         $php_file =     glob("target/php5-midgard3*.tar.gz");
         $runtime_file = glob("target/midgard3-runtime*.tar.gz");

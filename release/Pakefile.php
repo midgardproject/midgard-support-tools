@@ -249,7 +249,7 @@ function _extract_package($target, $package)
 function _process_midgard_core($target, $version, $options)
 {
     preg_replace_in_file(
-        '/('.preg_quote('AC_INIT([midgard3-core],[', '/').').*('.preg_quote('])', '/').')/',
+        '/('.preg_quote('AC_INIT([midgardcr-core],[', '/').').*('.preg_quote('])', '/').')/',
         '${1}'.$version.'\2',
         $target.'/midgard-core/configure.in'
     );
@@ -263,7 +263,7 @@ function _process_midgard_core($target, $version, $options)
     }
 
     pake_sh('make dist');
-    $filename = 'midgard3-core-'.$version.'.tar.gz';
+    $filename = 'midgardcr-core-'.$version.'.tar.gz';
     pake_rename($target.'/midgard-core/'.$filename, $target.'/'.$filename);
 
     chdir($target);

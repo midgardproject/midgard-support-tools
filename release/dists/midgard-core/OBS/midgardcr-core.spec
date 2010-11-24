@@ -78,10 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/ldconfig
-/bin/ls -1 %{_sysconfdir}/midgard3/conf.d/ | /bin/grep -v ^midgard\.conf\.example$ | while read file; do
-    %{_bindir}/midgard3-schema "$file" > /dev/null 2>&1
-done
-exit 0
 
 %postun -p /sbin/ldconfig
 
@@ -90,45 +86,19 @@ exit 0
 %defattr(-,root,root,-)
 %doc COPYING
 %{_libdir}/*.so.*
-%dir %{_sysconfdir}/midgard3
-%dir %{_sysconfdir}/midgard3/conf.d
-%config(noreplace,missingok) %{_sysconfdir}/midgard3/conf.d/*
-%config(noreplace) %{_sysconfdir}/dbus-1/system.d/*
-%{_bindir}/*
-%{_mandir}/man1/*
-%dir %{_datadir}/midgard3
-%{_datadir}/midgard3/*
+%dir %{_datadir}/midgardcr
+%{_datadir}/midgardcr/*
 
 %files devel
 %defattr(-,root,root,-)
-%dir %{_includedir}/midgard3
-%dir %{_includedir}/midgard3/midgard
-%{_includedir}/midgard3/midgard/*
+%dir %{_includedir}/midgard
+%dir %{_includedir}/midgard/midgardcr
+%{_includedir}/midgard/*
+%{_includedir}/midgard/midgardcr*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 
 
 %changelog
-* Mon May 17 2010 Jarkko Ala-Louvesniemi <jval@puv.fi> 10.05.0-2.1
-- Changed libgda-3_0-devel to libgda-4_0-devel in suse specifics
-
-* Wed Oct 28 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 9.03.99-734.1
-- Initial OBS package: merged OBS specifics from 8.09.6-3.1
-
-* Tue Oct 27 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 9.03.99-1
-- Renamed package from midgard-core to midgard3-core
-- Removed OpenSSL and MySQL from development requirements
-- Added Libgda to development requirements
-- Removed Flex from build requirements
-- Updated package description to include Python and Libgda
-- Changed midgard to midgard3 in directory and file names
-- Include files are now in midgard3/midgard
-- Use macros for glib2 and libxml2 minimum version requirements
-- GLib requirement is now >= 2.14 (tests require >= 2.16)
-- Added dbus-1/system.d/* to configuration files
-
-* Thu Sep 17 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 8.09.5-2
-- Added missingok for the example configuration file(s)
-
-* Thu Jul 16 2009 Jarkko Ala-Louvesniemi <jval@puv.fi> 8.09.5-1
-- Initial package using the Fedora spec file template.
+* Wed Nov 24 2010 Piotr Pokora <piotrek.pokora@gmail.com> 10.05.99
+- New package (based on midgard2-core)

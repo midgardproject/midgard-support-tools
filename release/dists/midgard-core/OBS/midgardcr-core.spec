@@ -3,9 +3,9 @@
 %define min_glib2 2.14
 %define min_libxml2 2.6
 %if 0%{?suse_version}
-%define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-4_0-devel, dbus-1-devel, dbus-1-glib-devel, valac
+%define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-4_0-devel, dbus-1-devel, dbus-1-glib-devel, vala, vala-devel
 %else
-%define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel, valac
+%define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel, vala, vala-devel
 %endif
 
 Name:           midgardcr-core

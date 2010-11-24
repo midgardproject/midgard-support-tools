@@ -86,6 +86,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc COPYING
 %{_libdir}/*.so.*
+%dir %{_sysconfdir}/midgardcr
+%dir %{_sysconfdir}/midgardcr/conf.d
+%config(noreplace,missingok) %{_sysconfdir}/midgardcr/conf.d/*
 %dir %{_datadir}/midgardcr
 %{_datadir}/midgardcr/*
 

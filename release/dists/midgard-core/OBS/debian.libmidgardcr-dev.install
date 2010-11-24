@@ -1,5 +1,5 @@
-usr/include/midgard3/*
+usr/include/midgard/*
 usr/lib/libmidgardcr.so
 usr/lib/libmidgardcr.la
 usr/lib/libmidgardcr.a
-usr/lib/pkgconfig/midgard3.pc
+usr/lib/pkgconfig/midgardcr.pc

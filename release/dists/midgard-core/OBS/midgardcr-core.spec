@@ -97,7 +97,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/midgard
 %dir %{_includedir}/midgard/midgardcr
 %{_includedir}/midgard/*
-%{_includedir}/midgard/midgardcr*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 

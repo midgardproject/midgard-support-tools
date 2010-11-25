@@ -61,10 +61,8 @@ binary-arch:install
 	dh_testdir
 	dh_testroot
 	dh_installdocs 
-	dh_installchangelogs
-	dh_installman
-	dh_installpam --name=midgard2	
-	dpkg-gensymbols -plibmidgard2-2010 -d -Odebian/libmidgard2-2010.symbols -edebian/tmp/usr/lib/libmidgard2.so.2010 -v10.3
+	dh_installchangelogs	
+	dpkg-gensymbols -plibmidgardcr-3 -d -Odebian/libmidgardcr-3.symbols -edebian/tmp/usr/lib/libmidgardcr.so.3 -v10.11
 	dh_makeshlibs -V
 	dh_shlibdeps -s
 	dh_strip

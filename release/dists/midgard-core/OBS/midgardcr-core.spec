@@ -63,8 +63,7 @@ The %{name}-vapi package contains Vala bindings
 (vapi file) for developing applications that use %{name}.
 
 %prep
-%setup -q
-
+%setup -q -n %{tar_name}-%{version}
 
 %build
 %configure --disable-static

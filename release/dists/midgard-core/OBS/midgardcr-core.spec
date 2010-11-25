@@ -25,7 +25,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  pkgconfig >= 0.9.0
 BuildRequires:  %{devel_requires}
-BuildRequires:  pam-devel
 
 Requires:       glib2 >= %{min_glib2}, libxml2 >= %{min_libxml2}
 Requires(post): /bin/ls, /bin/grep
@@ -56,6 +55,15 @@ Requires:       %{devel_requires}
 The %{name}-devel package contains libraries and header files for 
 developing applications that use %{name}.
 
+%package        vapi
+Summary:        Vala bindings for %{name}
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
+Requires:       %{devel_requires}
+
+%description vapi
+The %{name}-vapi package contains Vala bindings 
+(vapi file) for developing applications that use %{name}.
 
 %prep
 %setup -q
@@ -85,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun -p /sbin/ldconfig
 
-
 %files
 %defattr(-,root,root,-)
 %doc COPYING
@@ -105,6 +112,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 
+%files vapi
+%defattr(-,root,root,-)
+%dir %{_datadir}/vala/vapi
+%{_datadir}/vala/vapi/MidgardCR-3.0.vapi
 
 %changelog
 * Wed Nov 24 2010 Piotr Pokora <piotrek.pokora@gmail.com> 10.05.99

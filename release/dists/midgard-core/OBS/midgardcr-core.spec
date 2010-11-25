@@ -7,8 +7,11 @@
 %else
 %define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel, vala, vala-devel
 %endif
-
-Name:           midgardcr-core
+%if 0%{?suse_version}
+Name:           libmidgardcr3
+%else
+Name:		midgardcr-core
+el
 Version:        %{major_version}
 Release:        OBS
 Summary:        Midgard Content Repository core library 

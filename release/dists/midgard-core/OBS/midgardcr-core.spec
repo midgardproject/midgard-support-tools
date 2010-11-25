@@ -100,7 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %dir %{_includedir}/midgard
 %dir %{_includedir}/midgard/midgardcr
-%{_includedir}/midgard/*
+%{_includedir}/midgard/midgardcr.h
+%{_includedir}/midgard/midgardcr/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*
 

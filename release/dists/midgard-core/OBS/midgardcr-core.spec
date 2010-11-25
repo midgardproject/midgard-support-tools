@@ -1,4 +1,5 @@
 %define major_version 10.05.99
+%define tar_name midgardcr-core
 
 %define min_glib2 2.24
 %define min_libxml2 2.6
@@ -8,11 +9,7 @@
 %define devel_requires glib2-devel >= %{min_glib2}, libxml2-devel >= %{min_libxml2}, libgda-devel, dbus-devel, dbus-glib-devel, vala, vala-devel
 %endif
 
-%if 0%{?suse_version}
 Name:           libmidgardcr3
-%else
-Name:		midgardcr-core
-%endif
 Version:        %{major_version}
 Release:        OBS
 Summary:        Midgard Content Repository core library 
@@ -20,7 +17,7 @@ Summary:        Midgard Content Repository core library
 Group:          System Environment/Base
 License:        LGPLv2+
 URL:            http://www.midgard-project.org/
-Source0:        %{url}download/%{name}-%{version}.tar.gz
+Source0:        %{url}download/%{tar_name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  pkgconfig >= 0.9.0

@@ -1,3 +1,11 @@
+midgard2-core (10.05.2-1) unstable; urgency=low
+
+  * New upstream
+  * Fixed GObject Introspection build depends. Closes: #603235
+  * Added libmidgard2.symbols
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Tue, 14 Dec 2010 15:31:24 +0100
+
 midgard2-core (10.05.1.2-2) unstable; urgency=low
 
   * Standards-Version set to newest one: 3.9.1

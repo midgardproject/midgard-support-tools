@@ -2,12 +2,10 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  MIDGARD_MD5_Final@Base 10.05
  MIDGARD_MD5_Init@Base 10.05
  MIDGARD_MD5_Update@Base 10.05
- __build_static_create_view@Base 10.05
  __compute_reserved_property_constraint@Base 10.05
  __copy_date@Base 10.05
  __create_base_blobdir@Base 10.05
  __create_log_dir@Base 10.05
- __default_unescape_string@Base 10.05
  __exclude_deleted_constraint@Base 10.05
  __get_bus_proxy@Base 10.05
  __get_current_timestamp_value@Base 10.05
@@ -299,6 +297,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_query_order_free@Base 10.05
  midgard_core_query_order_get_sql@Base 10.05
  midgard_core_query_order_new@Base 10.05
+ midgard_core_query_unescape_string@Base 10.05
  midgard_core_query_update_class_storage@Base 10.05
  midgard_core_query_update_dbobject_record@Base 10.05
  midgard_core_query_update_object_fields@Base 10.05
@@ -322,6 +321,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_schema_type_validate_fields@Base 10.05
  midgard_core_table_exists@Base 10.05
  midgard_core_timestamp_set_current_time@Base 10.05
+ midgard_core_view_build_create_view_command@Base 10.05
  midgard_core_view_type_register@Base 10.05
  midgard_core_views_read_dir@Base 10.05
  midgard_core_views_read_file@Base 10.05

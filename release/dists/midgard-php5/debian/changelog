@@ -1,3 +1,10 @@
+php5-midgard2 (10.05.2-1) unstable; urgency=low
+
+  * New upstream
+  * Removed ignore-warnings flags from dh_shlibdeps
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Wed, 15 Dec 2010 09:05:40 +0100
+
 php5-midgard2 (10.05.1-1) unstable; urgency=low
 
   * Upload to mentors. Closes: #599108 

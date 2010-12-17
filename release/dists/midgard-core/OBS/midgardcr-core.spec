@@ -1,4 +1,4 @@
-%define major_version 10.05.99
+%define major_version 10.12
 %define tar_name midgardcr-core
 
 %define min_glib2 2.24

@@ -1,7 +1,6 @@
 #! /usr/bin/make -f
 
 #export DH_VERBOSE=1
-export DH_COMPAT=4
 export DH_OPTIONS
 
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
@@ -37,7 +36,7 @@ configure-stamp:
 
 clean:
 	dh_testdir
-	-$(MAKE) distclean
+	[ ! -f Makefile ] || $(MAKE) distclean	
 	rm -f build-stamp configure-stamp
 	dh_clean
 
@@ -62,7 +61,7 @@ binary-arch:install
 	dh_testroot
 	dh_installdocs 
 	dh_installchangelogs	
-	dpkg-gensymbols -plibmidgardcr-3 -d -Odebian/libmidgardcr-3.symbols -edebian/tmp/usr/lib/libmidgardcr.so.3 -v10.11
+	dpkg-gensymbols -plibmidgardcr-3 -d -Odebian/libmidgardcr-3.symbols -edebian/tmp/usr/lib/libmidgardcr.so.3 -v10.12
 	dh_makeshlibs -V
 	dh_shlibdeps -s
 	dh_strip

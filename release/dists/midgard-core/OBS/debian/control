@@ -1,21 +1,18 @@
 Source: midgardcr-core
 Section: libs
-Architecture: any
-Binary: libmidgardcr-3, libmidgardcr-dev, midgardcr-common
 Priority: optional
-Maintainer:  Piotr Pokora <piotrek.pokora@gmail.com>
+Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders: 
 Standards-Version: 3.9.1
 Homepage: http://www.midgard-project.org
-Build-Depends: debhelper (>=3), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, libc6, zlib1g-dev, midgard-libgda-4.0-dev | libgda-4.0-dev | libgda4-dev, gobject-introspection-freedesktop | gir1.0-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir-repository-dev,  libgirepository1.0-dev, gir1.0-gda-4.0 , valac, libvala-dev
+Build-Depends: debhelper (>=3), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, libc6, zlib1g-dev, midgard-libgda-4.0-dev | libgda-4.0-dev | libgda4-dev, gir1.0-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir-repository-dev | libgirepository1.0-dev (>= 0.6.5), gir1.0-gda-4.0 , valac, libvala-dev
 
 Package: libmidgardcr-3
-Section: libs
 Architecture: any
-Depends: libglib2.0-0 (>=2.12), libdbus-glib-1-2, dbus, midgard-libgda-4.0-4 | libgda-4.0-4 | libgda4-4, libc6, ${shlibs:Depends}
+Depends: libglib2.0-0 (>=2.24), libdbus-glib-1-2, dbus, midgard-libgda-4.0-4 | libgda-4.0-4 | libgda4-4, ${shlibs:Depends}, ${misc:Depends}
 Conflicts:
 Suggests: mysql-server
-Description: Midgard Content Repository - Runtime Library
+Description: MidgardCR Content Repository - Runtime Library
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
@@ -26,10 +23,10 @@ Description: Midgard Content Repository - Runtime Library
 Package: libmidgardcr-dev
 Section: libdevel
 Architecture: any
-Depends: libmidgardcr-2010 (>= ${source:Version}), libglib2.0-dev (>=2.12)
+Depends: libmidgardcr-3 (= ${binary:Version}), libgda-4.0-dev | libgda4-dev, ${misc:Depends}
 Conflicts:
 Replaces: 
-Description: Midgard Content Repository - Development Files
+Description: MidgardCR Content Repository - Development Files
  This package is required only if you are a developer and intend to build
  extensions for MidgardCR. It contains the header files and static library.
  .
@@ -42,7 +39,7 @@ Description: Midgard Content Repository - Development Files
 Package: midgardcr-common
 Section: utils
 Architecture: any
-Depends: libmidgardcr-2010 (>= ${source:Version})
+Depends: libmidgardcr-2010 (>= ${source:Version}), ${misc:Depends}
 Description: MidgardCR common files used by different midgard extensions
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented
@@ -56,7 +53,7 @@ Description: MidgardCR common files used by different midgard extensions
 Package: gir1.0-midgardcr
 Section: utils
 Architecture: any
-Depends: libmidgardcr-2010 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), libc6, ${shlibs:Depends}
+Depends: libmidgardcr-2010 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), ${shlibs:Depends}, gir1.0-glib-2.0, libgirepository1.0-0, ${misc:Depends} 
 Description: MidgardCR - GObject Introspection
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented
@@ -70,7 +67,7 @@ Description: MidgardCR - GObject Introspection
 Package: midgardcr-vapi
 Section: libdevel
 Architecture: any
-Depends: libmidgardcr-3 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), libc6, ${shlibs:Depends}
+Depends: libmidgardcr-3 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), valac, ${shlibs:Depends}, ${misc:Depends}
 Description: MidgardCR - Vala bindings
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented

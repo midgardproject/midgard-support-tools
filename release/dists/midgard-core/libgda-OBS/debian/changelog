@@ -1,4 +1,10 @@
-midgard-libgda4 (4.0.8-1) unstable; urgency=low
+libgda4 (4.0.11-1) unstable; urgency=low
+
+  * OBS build. Provided 4.0.11 version for a gap between 4.0.9 and 4.0.12
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Fri, 17 Dec 2010 11:32:07 +0100
+
+libgda4 (4.0.8-1) unstable; urgency=low
 
   [ Emilio Pozuelo Monfort ]
   * debian/rules:

@@ -1,6 +1,6 @@
 Format: 1.0  
 Source: midgardcr-core  
-Version: 10.11.0-1
+Version: 10.12.0
 Binary: libmidgardcr-3, libmidgardcr-dev, midgardcr-common, gir1.0-midgardcr
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>  
 Architecture: any

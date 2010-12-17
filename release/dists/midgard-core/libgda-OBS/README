@@ -1,0 +1,5 @@
+OBS upload:
+
+ * Create debian.tar.gz tarball 
+ * Upload tarball to package's source files
+ * Upload libgda4.dsc to package's source files

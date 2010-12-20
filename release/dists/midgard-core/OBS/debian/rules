@@ -7,18 +7,7 @@ DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 DEB_BUILD_ARCH   ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
-deb_section=
-
-CONFIGURE_FLAGS=\
-	--prefix=/usr\
-
-ifeq ($(DEB_BUILD_ARCH),armel)
-deb_section=user\/
-endif
-
-switch-arch:
-	 sed -e 's/Architecture: any/Architecture: ${DEB_BUILD_ARCH}/g' debian/control > control.dummy
-	 mv control.dummy debian/control
+CONFIGURE_FLAGS = --prefix=/usr
 
 build: build-stamp
 build-stamp: configure-stamp
@@ -72,5 +61,5 @@ binary-arch:install
 	dh_md5sums
 	dh_builddeb
 
-binary:	switch-arch binary-indep binary-arch
-.PHONY: switch-arch binary binary-arch binary-indep install clean configure build clean
+binary:	binary-indep binary-arch
+.PHONY: binary binary-arch binary-indep install clean configure build clean

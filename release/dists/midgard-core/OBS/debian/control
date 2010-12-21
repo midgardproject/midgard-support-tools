@@ -39,7 +39,7 @@ Description: MidgardCR Content Repository - Development Files
 Package: midgardcr-common
 Section: utils
 Architecture: any
-Depends: libmidgardcr-2010 (>= ${source:Version}), ${misc:Depends}
+Depends: libmidgardcr-3 (>= ${source:Version}), ${misc:Depends}
 Description: MidgardCR common files used by different midgard extensions
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented
@@ -53,7 +53,7 @@ Description: MidgardCR common files used by different midgard extensions
 Package: gir1.0-midgardcr
 Section: utils
 Architecture: any
-Depends: libmidgardcr-2010 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), ${shlibs:Depends}, gir1.0-glib-2.0, libgirepository1.0-0, ${misc:Depends} 
+Depends: libmidgardcr-3 (>= ${source:Version}), midgardcr-common (>= ${source:Version}), ${shlibs:Depends}, gir1.0-glib-2.0, libgirepository1.0-0, ${misc:Depends} 
 Description: MidgardCR - GObject Introspection
  .
  MidgardCR is an Open Source Content Repository. It provides an object-oriented

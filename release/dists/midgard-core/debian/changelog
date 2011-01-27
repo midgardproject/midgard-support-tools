@@ -1,3 +1,9 @@
+midgard2-core (10.05.2-2) unstable; urgency=low
+
+  * Optional build dependency gir-repository-dev 
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Fri, 17 Dec 2010 09:37:39 +0100
+
 midgard2-core (10.05.2-1) unstable; urgency=low
 
   * New upstream

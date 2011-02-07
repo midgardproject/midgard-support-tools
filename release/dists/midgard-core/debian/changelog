@@ -1,3 +1,11 @@
+midgard2-core (10.05.3-1) experimental; urgency=low
+
+  * New upstream release
+  * Renamed gir1.0-midgard2 to gir1.2-midgard2
+  * Added new gir1.2 dependencies
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Mon, 07 Feb 2011 11:07:41 +0100
+
 midgard2-core (10.05.2-2) unstable; urgency=low
 
   * Optional build dependency gir-repository-dev 

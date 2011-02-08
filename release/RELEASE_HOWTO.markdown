@@ -92,6 +92,8 @@ version number
   * Upload generated source, diff and tar.gz files to extras-devel
     (using dput or maemo packages web interface https://garage.maemo.org/extras-assistant/index.php)
 
+* Upload source debian packages to debian unstable or experimental repository
+
 * Generate core docs (core/midgard/docs use gtk-doc) and upload them to midgard
   website
 

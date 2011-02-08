@@ -141,7 +141,6 @@ Submit release announcement by web to following locations:
 - http://freshmeat.net/projects/midgard
 - http://freshmeat.net/projects/midcom
 - http://www.cmsinfo.org/submission.php3
-- http://www.newsforge.com/submit.pl
 - http://www.content-wire.com/contact
 - http://linuxtoday.com/contribute.php3
 - http://apache.slashdot.org/submit.pl

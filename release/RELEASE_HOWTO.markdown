@@ -85,7 +85,8 @@ version number
 
 * Upload source debian package to maemo extras-devel repository
   * Download debian files (dsc, targ.gz, diff) to separate directory
-    (Files need to be downloaded from OBS package management project page)
+    (Files need to be downloaded from OBS package management project page.
+    https://build.opensuse.org/project/show?project=home%3Amidgardproject%3Aratatoskr%3Anogir)
   * For each package run `dpkg-source -x PACKAGE_NAME`
   * For each unpacked source run `dpkg-buildpackage -rfakeroot -sa -S`
   * Upload generated source, diff and tar.gz files to extras-devel

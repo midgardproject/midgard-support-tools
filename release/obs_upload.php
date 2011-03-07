@@ -3,7 +3,7 @@
 if (!function_exists("curl_exec"))
     die("Curl extension not loaded");
 
-define("OBS_PROJECT",     "home:midgardproject:ratatoskr-dev");
+define("OBS_PROJECT",     "home:midgardproject:ratatoskr");
 define("OBS_BASE_URL",    "https://api.opensuse.org/source/". rawurlencode (OBS_PROJECT) . "/");
 define("OBS_USER_FILE",   "~/.midgard/obs_user");
 

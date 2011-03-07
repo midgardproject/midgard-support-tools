@@ -100,6 +100,13 @@ version number
 * Generate PHP API bindings viewer and upload (apis/php5/docs/make_html.php)
   and upload them to midgard website.
 
+* Bump version for next release.
+  - configure.in in core
+  - setup.py in python module
+  - options.yml in support-tools
+  - OBS files
+
+* Remove old tarballs from OBS dev repos
 
 4. Announcements
 ----------------

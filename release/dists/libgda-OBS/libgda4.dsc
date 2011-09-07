@@ -1,6 +1,6 @@
 Format: 1.0
 Source: libgda4
-Binary: libgda-4.0-4, libgda-4.0-bin, libgda-4.0-common, libgda-4.0-dev, libgda-4.0-4-dbg, libgda-4.0-doc, libgda-4.0-mysql, libgda-4.0-postgres, gir1.0-gda-4.0 
+Binary: libgda-4.0-4, libgda-4.0-bin, libgda-4.0-common, libgda-4.0-dev, libgda-4.0-4-dbg, libgda-4.0-doc, libgda-4.0-mysql, gir1.0-gda-4.0 
 Architecture: any
 Version: 4.0.11-1
 Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>

@@ -16,6 +16,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  __get_pdata_foreach@Base 10.05
  __get_tdata_foreach@Base 10.05
  __index_exists@Base 10.05
+ __lookup_node@Base 10.05
  __metadata_lookup_node@Base 10.05
  __midgard_config_struct_free@Base 10.05
  __midgard_connection_open@Base 10.05
@@ -60,19 +61,26 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  _midgard_object_update@Base 10.05
  _midgard_query_constraint_add_conditions_to_statement@Base 10.05
  _midgard_query_constraint_group_list_constraints@Base 10.05
+ _midgard_query_constraint_group_validable_iface_is_valid@Base 10.05
  _midgard_query_constraint_list_constraints@Base 10.05
+ _midgard_query_constraint_validable_iface_is_valid@Base 10.05
  _midgard_query_group_add_conditions_to_statement@Base 10.05
+ _midgard_query_property_validable_iface_is_valid@Base 10.05
  _midgard_query_select_add_join@Base 10.05
  _midgard_query_select_add_order@Base 10.05
- _midgard_query_select_execute@Base 10.05
  _midgard_query_select_get_results_count@Base 10.05
  _midgard_query_select_list_objects@Base 10.05
  _midgard_query_select_set_constraint@Base 10.05
  _midgard_query_select_set_limit@Base 10.05
  _midgard_query_select_set_offset@Base 10.05
  _midgard_query_select_toggle_read_only@Base 10.05
+ _midgard_query_select_validable_iface_is_valid@Base 10.05
+ _midgard_query_storage_validable_iface_is_valid@Base 10.05
  _midgard_tree_exists@Base 10.05
  _midgard_tree_ids@Base 10.05
+ _midgard_workspace_context_get_path@Base 10.05
+ _midgard_workspace_get_by_path@Base 10.05
+ _midgard_workspace_get_path@Base 10.05
  _nodes2object@Base 10.05
  _object_copy_properties@Base 10.05
  _object_in_tree@Base 10.05
@@ -82,6 +90,9 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  mgd_create_guid@Base 10.05
  mgd_info@Base 10.05
  midgard_attachment_get_type@Base 10.05
+ midgard_base_abstract_get_type@Base 10.05
+ midgard_base_interface_get_type@Base 10.05
+ midgard_base_mixin_get_type@Base 10.05
  midgard_blob_create_blob@Base 10.05
  midgard_blob_exists@Base 10.05
  midgard_blob_get_handler@Base 10.05
@@ -158,16 +169,20 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_connection_enable_dbus@Base 10.05
  midgard_connection_enable_quota@Base 10.05
  midgard_connection_enable_replication@Base 10.05
+ midgard_connection_enable_workspace@Base 10.05
  midgard_connection_get_error@Base 10.05
  midgard_connection_get_error_string@Base 10.05
  midgard_connection_get_loghandler@Base 10.05
  midgard_connection_get_loglevel@Base 10.05
  midgard_connection_get_type@Base 10.05
  midgard_connection_get_user@Base 10.05
+ midgard_connection_get_workspace@Base 10.05
+ midgard_connection_get_workspace_manager@Base 10.05
  midgard_connection_is_connected@Base 10.05
  midgard_connection_is_enabled_dbus@Base 10.05
  midgard_connection_is_enabled_quota@Base 10.05
  midgard_connection_is_enabled_replication@Base 10.05
+ midgard_connection_is_enabled_workspace@Base 10.05
  midgard_connection_list_auth_types@Base 10.05
  midgard_connection_new@Base 10.05
  midgard_connection_open@Base 10.05
@@ -178,6 +193,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_connection_set_error@Base 10.05
  midgard_connection_set_loghandler@Base 10.05
  midgard_connection_set_loglevel@Base 10.05
+ midgard_connection_set_workspace@Base 10.05
  midgard_connection_struct_open_config@Base 10.05
  midgard_core_auth_type_free@Base 10.05
  midgard_core_auth_type_id_from_name@Base 10.05
@@ -201,8 +217,11 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_dbjoin_free@Base 10.05
  midgard_core_dbjoin_new@Base 10.05
  midgard_core_dbobject_class_list_properties@Base 10.05
+ midgard_core_dbobject_private_new@Base 10.05
  midgard_core_dbus_send_serialized_object@Base 10.05
+ midgard_core_interface_add_prerequisites@Base 10.05
  midgard_core_metadata_copy@Base 10.05
+ midgard_core_metadata_copy_properties@Base 10.05
  midgard_core_metadata_dbpriv_set_property@Base 10.05
  midgard_core_metadata_get_size@Base 10.05
  midgard_core_metadata_increase_revision@Base 10.05
@@ -233,6 +252,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_object_class_set_midgard@Base 10.05
  midgard_core_object_create_xml_doc@Base 10.05
  midgard_core_object_from_xml@Base 10.05
+ midgard_core_object_get_deleted_field@Base 10.05
  midgard_core_object_get_property_parent_type@Base 10.05
  midgard_core_object_get_property_up_type@Base 10.05
  midgard_core_object_get_xml_doc@Base 10.05
@@ -287,6 +307,10 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_query_get_field_value@Base 10.05
  midgard_core_query_get_id@Base 10.05
  midgard_core_query_get_model@Base 10.05
+ midgard_core_query_get_object@Base 10.05
+ midgard_core_query_get_object_value@Base 10.05
+ midgard_core_query_get_objects@Base 10.05
+ midgard_core_query_get_tree_ids@Base 10.05
  midgard_core_query_group_constraint_add_sql@Base 10.05
  midgard_core_query_group_constraint_get_type@Base 10.05
  midgard_core_query_group_constraint_new@Base 10.05
@@ -303,12 +327,14 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_query_update_object_fields@Base 10.05
  midgard_core_query_where_guid@Base 10.05
  midgard_core_schema_gtype_from_string@Base 10.05
+ midgard_core_schema_register_type@Base 10.05
  midgard_core_schema_type_add_table@Base 10.05
  midgard_core_schema_type_attr_extend@Base 10.05
  midgard_core_schema_type_attr_free@Base 10.05
  midgard_core_schema_type_attr_new@Base 10.05
  midgard_core_schema_type_build_static_sql@Base 10.05
  midgard_core_schema_type_initialize_paramspec@Base 10.05
+ midgard_core_schema_type_list_extends@Base 10.05
  midgard_core_schema_type_property_attr_free@Base 10.05
  midgard_core_schema_type_property_attr_new@Base 10.05
  midgard_core_schema_type_property_attr_new_empty@Base 10.05
@@ -321,10 +347,22 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_schema_type_validate_fields@Base 10.05
  midgard_core_table_exists@Base 10.05
  midgard_core_timestamp_set_current_time@Base 10.05
+ midgard_core_type_register_interface@Base 10.05
  midgard_core_view_build_create_view_command@Base 10.05
  midgard_core_view_type_register@Base 10.05
  midgard_core_views_read_dir@Base 10.05
  midgard_core_views_read_file@Base 10.05
+ midgard_core_workspace_get_col_id_by_name@Base 10.05
+ midgard_core_workspace_get_context_ids@Base 10.05
+ midgard_core_workspace_get_id_by_name@Base 10.05
+ midgard_core_workspace_get_id_by_path@Base 10.05
+ midgard_core_workspace_get_parent_names@Base 10.05
+ midgard_core_workspace_get_up_id_by_name@Base 10.05
+ midgard_core_workspace_get_value_by_id@Base 10.05
+ midgard_core_workspace_list_all@Base 10.05
+ midgard_core_workspace_name_exists@Base 10.05
+ midgard_core_workspace_private_free@Base 10.05
+ midgard_core_workspace_private_new@Base 10.05
  midgard_core_xml_attribute_is_allowed@Base 10.05
  midgard_core_xml_get_attribute_content@Base 10.05
  midgard_core_xml_get_child_attribute_content_by_name@Base 10.05
@@ -342,13 +380,15 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_error_generic@Base 10.05
  midgard_error_parse_loglevel@Base 10.05
  midgard_error_string@Base 10.05
+ midgard_executable_execute@Base 10.05
+ midgard_executable_get_type@Base 10.05
+ midgard_execution_error_quark@Base 10.05
  midgard_group_constraint_add_constraint@Base 10.05
  midgard_group_constraint_get_type@Base 10.05
  midgard_group_constraint_new@Base 10.05
  midgard_guid_external@Base 10.05
  midgard_guid_get_type@Base 10.05
  midgard_guid_new@Base 10.05
- midgard_hash_strings_new@Base 10.05
  midgard_init@Base 10.05
  midgard_is_guid@Base 10.05
  midgard_is_uuid@Base 10.05
@@ -394,6 +434,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_object_get_parent@Base 10.05
  midgard_object_get_schema_property@Base 10.05
  midgard_object_get_type@Base 10.05
+ midgard_object_get_workspace@Base 10.05
  midgard_object_has_attachments@Base 10.05
  midgard_object_has_dependents@Base 10.05
  midgard_object_has_parameters@Base 10.05
@@ -410,6 +451,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_object_purge@Base 10.05
  midgard_object_purge_attachments@Base 10.05
  midgard_object_purge_parameters@Base 10.05
+ midgard_object_save@Base 10.05
  midgard_object_set_connection@Base 10.05
  midgard_object_set_guid@Base 10.05
  midgard_object_set_parameter@Base 10.05
@@ -441,6 +483,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_query_constraint_get_storage@Base 10.05
  midgard_query_constraint_get_type@Base 10.05
  midgard_query_constraint_group_add_constraint@Base 10.05
+ midgard_query_constraint_group_add_constraints@Base 10.05
  midgard_query_constraint_group_get_group_type@Base 10.05
  midgard_query_constraint_group_get_type@Base 10.05
  midgard_query_constraint_group_new@Base 10.05
@@ -455,7 +498,6 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_query_constraint_simple_list_constraints@Base 10.05
  midgard_query_executor_add_join@Base 10.05
  midgard_query_executor_add_order@Base 10.05
- midgard_query_executor_execute@Base 10.05
  midgard_query_executor_get_results_count@Base 10.05
  midgard_query_executor_get_type@Base 10.05
  midgard_query_executor_new@Base 10.05
@@ -501,7 +543,11 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_reflector_object_get_schema_value@Base 10.05
  midgard_reflector_object_get_type@Base 10.05
  midgard_reflector_object_has_metadata_class@Base 10.05
+ midgard_reflector_object_is_abstract@Base 10.05
+ midgard_reflector_object_is_interface@Base 10.05
+ midgard_reflector_object_is_mixin@Base 10.05
  midgard_reflector_object_list_children@Base 10.05
+ midgard_reflector_object_list_defined_properties@Base 10.05
  midgard_reflector_property_description@Base 10.05
  midgard_reflector_property_get_default_value@Base 10.05
  midgard_reflector_property_get_link_class@Base 10.05
@@ -527,6 +573,11 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_replicator_serialize@Base 10.05
  midgard_replicator_serialize_blob@Base 10.05
  midgard_replicator_unserialize@Base 10.05
+ midgard_repligard_create_object_info@Base 10.05
+ midgard_repligard_get_type@Base 10.05
+ midgard_repligard_new@Base 10.05
+ midgard_repligard_purge_object_info@Base 10.05
+ midgard_repligard_update_object_info@Base 10.05
  midgard_schema_get_type@Base 10.05
  midgard_schema_init@Base 10.05
  midgard_schema_lookup_type@Base 10.05
@@ -574,6 +625,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_transaction_new@Base 10.05
  midgard_transaction_rollback@Base 10.05
  midgard_type_register@Base 10.05
+ midgard_type_register_abstract@Base 10.05
  midgard_user_create@Base 10.05
  midgard_user_delete@Base 10.05
  midgard_user_get@Base 10.05
@@ -591,6 +643,32 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_user_update@Base 10.05
  midgard_uuid_external@Base 10.05
  midgard_uuid_new@Base 10.05
+ midgard_validable_get_type@Base 10.05
+ midgard_validable_is_valid@Base 10.05
+ midgard_validable_validate@Base 10.05
+ midgard_validation_error_quark@Base 10.05
  midgard_version@Base 10.05
  midgard_view_get_type@Base 10.05
+ midgard_workspace_context_get_type@Base 10.05
+ midgard_workspace_context_has_workspace@Base 10.05
+ midgard_workspace_context_new@Base 10.05
+ midgard_workspace_get_context@Base 10.05
+ midgard_workspace_get_type@Base 10.05
+ midgard_workspace_is_in_context@Base 10.05
+ midgard_workspace_manager_create_workspace@Base 10.05
+ midgard_workspace_manager_get_type@Base 10.05
+ midgard_workspace_manager_get_workspace_by_path@Base 10.05
+ midgard_workspace_manager_move_content@Base 10.05
+ midgard_workspace_manager_new@Base 10.05
+ midgard_workspace_manager_path_exists@Base 10.05
+ midgard_workspace_manager_purge_content@Base 10.05
+ midgard_workspace_manager_purge_workspace@Base 10.05
+ midgard_workspace_manager_update_workspace@Base 10.05
+ midgard_workspace_new@Base 10.05
+ midgard_workspace_storage_error_quark@Base 10.05
+ midgard_workspace_storage_get_path@Base 10.05
+ midgard_workspace_storage_get_type@Base 10.05
+ midgard_workspace_storage_get_workspace_by_name@Base 10.05
+ midgard_workspace_storage_list_children@Base 10.05
+ midgard_workspace_storage_list_workspace_names@Base 10.05
  parent_class@Base 10.05

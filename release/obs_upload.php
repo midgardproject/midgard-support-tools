@@ -8,14 +8,12 @@ define("OBS_BASE_URL",    "https://api.opensuse.org/source/". rawurlencode (OBS_
 define("OBS_USER_FILE",   "~/.midgard/obs_user");
 
 define("CORE_PACKAGE",    "midgard2-core");
-define("PYTHON_PACKAGE",  "python-midgard2");
 define("PHP_PACKAGE",     "php5-midgard2");
 define("MVC_PACKAGE",     "midgard2-mvc");
 define("RUNTIME_PACKAGE", "midgard2-runtime");
 
 define("CORE_SVN_DIR",    "midgard-core");
 define("PHP_SVN_DIR",     "midgard-php5");
-define("PYTHON_SVN_DIR",  "midgard-python");
 define("RUNTIME_SVN_DIR", "midgard-runtime");
 define("MVC_SVN_DIR",     "midgardmvc");
 
@@ -223,14 +221,6 @@ class midgard_makedist_curl
         $this->_upload();
     }
 
-    function upload_python($filename)
-    {
-        $this->_curl_init();
-        $this->_set_put_tarball_options (PYTHON_PACKAGE, $filename);
-        echo "Uploading " . $filename;
-        $this->_upload();
-    }
-
     function upload_php($filename)
     {
          $this->_curl_init();
@@ -252,7 +242,6 @@ class midgard_makedist_curl
         chdir($dir);
 
         $core_file =    glob("target/midgard2-core*.tar.gz");
-        $python_file =  glob("target/python-midgard2*.tar.gz");
         $php_file =     glob("target/php5-midgard2*.tar.gz");
         $runtime_file = glob("target/midgard2-runtime*.tar.gz");
         $mvc_file =     glob("target/midgardmvc_core*.tar.gz");
@@ -260,15 +249,11 @@ class midgard_makedist_curl
         if (count($core_file) > 1)
             throw new Exception("More than one core tarball found");
 
-        if (count($python_file) > 1)
-            throw new Exception("More than one python tarball found");
-
         if (count($php_file) > 1)
             throw new Exception("More than one php tarball found");
 
         $this->upload_package_files(CORE_PACKAGE,    $core_file[0],    CORE_SVN_DIR);
         $this->upload_package_files(PHP_PACKAGE,     $php_file[0],     PHP_SVN_DIR);
-        $this->upload_package_files(PYTHON_PACKAGE,  $python_file[0],  PYTHON_SVN_DIR);
         $this->upload_package_files(RUNTIME_PACKAGE, $runtime_file[0], RUNTIME_SVN_DIR);
         $this->upload_package_files(MVC_PACKAGE,     $mvc_file[0],     MVC_SVN_DIR);
     }

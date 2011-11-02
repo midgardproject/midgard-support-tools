@@ -1,10 +1,9 @@
-version: 10.05.5
+version: 10.05.6
 branch: ratatoskr
 core_prefix: /usr/local
 packages:
   - midgard-core
   - midgard-php5
-  - midgard-python
   - midgard-runtime
 mvc_packages:
   - midgardmvc_core

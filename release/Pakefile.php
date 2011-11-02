@@ -270,21 +270,6 @@ function _process_midgard_core($target, $version, $options)
     pake_remove_dir($target.'/midgard-core');
 }
 
-function _process_midgard_python($target, $version)
-{
-    preg_replace_in_file(
-        '/('.preg_quote("version = '", '/').').*('.preg_quote("',", '/').')/',
-        '${1}'.$version.'\2',
-        $target.'/midgard-python/setup.py'
-    );
-
-    chdir($target.'/midgard-python');
-    pake_sh('python setup.py sdist --formats gztar --dist-dir '.escapeshellarg($target).' --keep-temp');
-
-    chdir($target);
-    pake_remove_dir($target.'/midgard-python');
-}
-
 function _process_midgard_php5($target, $version)
 {
     chdir($target);

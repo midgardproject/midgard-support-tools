@@ -103,6 +103,7 @@ exit 0
 %defattr(-,root,root,-)
 %dir %{_includedir}/midgard2
 %dir %{_includedir}/midgard2/midgard
+%dir %{_includedir}/midgard2/midgard2.h
 %{_includedir}/midgard2/midgard/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*

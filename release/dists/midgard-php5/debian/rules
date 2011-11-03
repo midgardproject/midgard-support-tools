@@ -14,7 +14,9 @@ ltconfig ltmain.sh missing mkinstalldirs
 
 PHP5EXTENSIONDIR=`grep '\#define PHP_EXTENSION_DIR ' /usr/include/php5/main/build-defs.h|sed -e     's/\#define PHP_EXTENSION_DIR       //' | sed -s 's/"//g'`
 
-build: build-midgard-php5-stamp
+build: build-arch build-indep 
+build-arch:
+buil-indep: build-midgard-php5-stamp
 
 build-midgard-php5-stamp: configure-midgard-php5-stamp
 	dh_testdir

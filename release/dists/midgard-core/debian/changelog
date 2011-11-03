@@ -1,6 +1,7 @@
 midgard2-core (10.05.5-1) experimental; urgency=low
 
-  * New upstream release 
+  * New upstream release
+  * Added recommended targets to rules. 
 
  -- Piotr Pokora <piotrek.pokora@gmail.com>  Thu, 04 Nov 2011 20:06:52 +0100
 

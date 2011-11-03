@@ -16,7 +16,7 @@ PHP5EXTENSIONDIR=`grep '\#define PHP_EXTENSION_DIR ' /usr/include/php5/main/buil
 
 build: build-arch build-indep 
 build-arch:
-buil-indep: build-midgard-php5-stamp
+build-indep: build-midgard-php5-stamp
 
 build-midgard-php5-stamp: configure-midgard-php5-stamp
 	dh_testdir

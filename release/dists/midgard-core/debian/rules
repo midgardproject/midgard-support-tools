@@ -10,7 +10,9 @@ DEB_BUILD_ARCH   ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 CONFIGURE_FLAGS=\
 	--prefix=/usr\
 
-build: build-stamp
+build: build-arch build-indep
+build-arch:
+build-indep: build-stamp
 build-stamp: configure-stamp
 	dh_testdir
 	$(MAKE) pkgdatadir=/usr/share/midgard 
@@ -42,11 +44,11 @@ install: build
 	dh_install --sourcedir=debian/tmp
 	
 binary-indep: DH_OPTIONS=-i
-binary-indep:
+binary-indep: 
 # nothing to do
 
 binary-indep: DH_OPTIONS=-a
-binary-arch:install
+binary-arch: install
 	dh_testdir
 	dh_testroot
 	dh_installdocs 

@@ -5,11 +5,11 @@ Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders:
 Standards-Version: 3.9.2
 Homepage: http://www.midgard-project.org
-Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-4.0-dev | libgda4-dev, gir1.0-freedesktop | gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir-repository-dev | libgirepository1.0-dev (>= 0.6.5), gir1.0-gda-4.0 | gir1.2-gda-4.0
+Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-4.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir-repository-dev, gir1.2-gda-4.0
 
 Package: libmidgard2
 Architecture: any
-Depends: libglib2.0-0 (>=2.12), libxml2 (>=2.6.11), libdbus-glib-1-2, dbus, libgda-4.0-4 | libgda4-4, ${shlibs:Depends}, ${misc:Depends} 
+Depends: libglib2.0-0 (>=2.12), libxml2 (>=2.6.11), libdbus-glib-1-2, dbus, libgda-4.0-4, ${shlibs:Depends}, ${misc:Depends} 
 Conflicts: 
 Suggests: mysql-server
 Description: Midgard Content Repository - Runtime Library
@@ -23,7 +23,7 @@ Description: Midgard Content Repository - Runtime Library
 Package: libmidgard2-dev
 Section: libdevel
 Architecture: any
-Depends: libmidgard2 (= ${binary:Version}), libgda-4.0-dev | libgda4-dev, ${misc:Depends}
+Depends: libmidgard2 (= ${binary:Version}), libgda-4.0-dev, ${misc:Depends}
 Conflicts:
 Replaces: 
 Description: Midgard Content Repository - Development Files

@@ -5,7 +5,7 @@ Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders:
 Standards-Version: 3.9.2
 Homepage: http://www.midgard-project.org
-Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-4.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir-repository-dev, gir1.2-gda-4.0
+Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-4.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir1.2-gda-4.0
 
 Package: libmidgard2
 Architecture: any
@@ -13,7 +13,6 @@ Depends: libglib2.0-0 (>=2.12), libxml2 (>=2.6.11), libdbus-glib-1-2, dbus, libg
 Conflicts: 
 Suggests: mysql-server
 Description: Midgard Content Repository - Runtime Library
- .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
  web and the desktop. Midgard2 is built on the GNOME stack of libraries like 
@@ -41,7 +40,6 @@ Section: utils
 Architecture: any
 Depends: libmidgard2 (>= ${source:Version}), ${misc:Depends}
 Description: Midgard2 common files used by different midgard extensions
- .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both
  web and the desktop. Midgard2 is built on the GNOME stack of libraries like 
@@ -55,7 +53,6 @@ Section: utils
 Architecture: any
 Depends: libmidgard2 (>= ${source:Version}), midgard2-common (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: Midgard2 command line tools.
- .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
  web and the desktop. Midgard2 is built on the GNOME stack of libraries like 
@@ -71,7 +68,6 @@ Depends: libmidgard2 (>= ${source:Version}), midgard2-common (>= ${source:Versio
 Conflicts: gir1.0-midgard2
 Replaces: gir1.0-midgard2 
 Description: Midgard2 - GObject Introspection
- .
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
  web and the desktop. Midgard2 is built on the GNOME stack of libraries like 

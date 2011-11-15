@@ -58,7 +58,6 @@ install: build
 	mkdir -p debian/php5-midgard2${PHP5EXTENSIONDIR}
 	mkdir -p debian/php5-midgard2/usr/share/doc/php5-midgard2
 	cp debian/copyright debian/php5-midgard2/usr/share/doc/php5-midgard2/
-	cp debian/changelog debian/php5-midgard2/usr/share/doc/php5-midgard2/
 	cp midgard2.ini     debian/php5-midgard2/usr/share/doc/php5-midgard2/
 	cp midgard-php5-build/.libs/midgard2.so debian/php5-midgard2${PHP5EXTENSIONDIR}
 	

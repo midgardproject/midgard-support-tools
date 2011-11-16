@@ -1,3 +1,9 @@
+midgard2-core (10.05.5.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Wed, 16 Nov 2011 09:04:24 +0100
+
 midgard2-core (10.05.5-2) unstable; urgency=low
 
   * Do not distribute .la file. Closes: #622525

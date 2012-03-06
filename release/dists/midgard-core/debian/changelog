@@ -1,3 +1,10 @@
+midgard2-core (10.05.6-1) unstable; urgency=low
+
+  * New upstream release 
+  * Updated Standards-Version (3.9.3)
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Tue, 06 Mar 2012 18:24:37 +0100
+
 midgard2-core (10.05.5.1-1) unstable; urgency=low
 
   * New upstream release

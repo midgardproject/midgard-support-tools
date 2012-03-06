@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders:
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://www.midgard-project.org
 Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-4.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir1.2-gda-4.0
 
@@ -62,7 +62,7 @@ Description: Midgard2 command line tools.
  This package contains command line tools and manuals.
 
 Package: gir1.2-midgard2
-Section: utils
+Section: introspection
 Architecture: any
 Depends: libmidgard2 (>= ${source:Version}), midgard2-common (>= ${source:Version}), ${shlibs:Depends}, gir1.2-glib-2.0, libgirepository1.0-1, ${misc:Depends}
 Conflicts: gir1.0-midgard2

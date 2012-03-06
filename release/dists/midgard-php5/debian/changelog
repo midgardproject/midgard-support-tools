@@ -1,3 +1,15 @@
+php5-midgard2 (10.05.6-1) unstable; urgency=low
+
+  * New upstream. Closes #656484 
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Tue, 06 Mar 2012 20:00:22 +0100
+
+php5-midgard2 (10.05.5-2) unstable; urgency=low
+
+  * Do not duplicate changelog
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Tue, 15 Nov 2011 18:30:17 +0100
+
 php5-midgard2 (10.05.5-1) experimental; urgency=low
 
   * New upstream 

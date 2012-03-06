@@ -1,4 +1,4 @@
-libmidgard2.so.2010 libmidgard2 #MINVER#
+libmidgard2.so.2010 libmidgard2-2010 #MINVER#
  MIDGARD_MD5_Final@Base 10.05
  MIDGARD_MD5_Init@Base 10.05
  MIDGARD_MD5_Update@Base 10.05
@@ -40,6 +40,8 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  __query_join_type_is_valid@Base 10.05
  __query_select_add_joins@Base 10.05
  __query_select_add_orders@Base 10.05
+ __query_select_data_add_joins@Base 10.05
+ __query_select_data_add_orders@Base 10.05
  __recurse_prepare_blobdir@Base 10.05
  __set_date_from_node@Base 10.05
  __set_dbtype@Base 10.05
@@ -76,6 +78,29 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  _midgard_query_select_toggle_read_only@Base 10.05
  _midgard_query_select_validable_iface_is_valid@Base 10.05
  _midgard_query_storage_validable_iface_is_valid@Base 10.05
+ _midgard_sql_query_column_get_name@Base 10.05
+ _midgard_sql_query_column_get_qualifier@Base 10.05
+ _midgard_sql_query_column_get_query_property@Base 10.05
+ _midgard_sql_query_constraint_add_conditions_to_statement@Base 10.05
+ _midgard_sql_query_constraint_list_constraints@Base 10.05
+ _midgard_sql_query_constraint_validable_iface_is_valid@Base 10.05
+ _midgard_sql_query_result_get_column_names@Base 10.05
+ _midgard_sql_query_result_get_columns@Base 10.05
+ _midgard_sql_query_result_get_objects@Base 10.05
+ _midgard_sql_query_result_get_rows@Base 10.05
+ _midgard_sql_query_row_get_object@Base 10.05
+ _midgard_sql_query_row_get_value@Base 10.05
+ _midgard_sql_query_row_get_values@Base 10.05
+ _midgard_sql_query_select_data_add_join@Base 10.05
+ _midgard_sql_query_select_data_add_order@Base 10.05
+ _midgard_sql_query_select_data_get_results_count@Base 10.05
+ _midgard_sql_query_select_data_selector_get_connection@Base 10.05
+ _midgard_sql_query_select_data_selector_get_query_result@Base 10.05
+ _midgard_sql_query_select_data_selector_get_query_string@Base 10.05
+ _midgard_sql_query_select_data_set_constraint@Base 10.05
+ _midgard_sql_query_select_data_set_limit@Base 10.05
+ _midgard_sql_query_select_data_set_offset@Base 10.05
+ _midgard_sql_query_select_data_validable_iface_is_valid@Base 10.05
  _midgard_tree_exists@Base 10.05
  _midgard_tree_ids@Base 10.05
  _midgard_workspace_context_get_path@Base 10.05
@@ -84,8 +109,11 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  _nodes2object@Base 10.05
  _object_copy_properties@Base 10.05
  _object_in_tree@Base 10.05
+ _propagate_columns@Base 10.05
+ _propagate_rows@Base 10.05
  dbus_glib_marshal_midgard_dbus_BOOLEAN__STRING_POINTER@Base 10.05
  dbus_glib_midgard_dbus_object_info@Base 10.05
+ get_real_table_field@Base 10.05
  key_config_context_error_quark@Base 10.05
  mgd_create_guid@Base 10.05
  mgd_info@Base 10.05
@@ -148,6 +176,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_config_read_file@Base 10.05
  midgard_config_read_file_at_path@Base 10.05
  midgard_config_save_file@Base 10.05
+ midgard_config_save_file_at_path@Base 10.05
  midgard_config_set_authtype@Base 10.05
  midgard_config_set_blobdir@Base 10.05
  midgard_config_set_database_host@Base 10.05
@@ -303,6 +332,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_core_query_create_metadata_columns@Base 10.05
  midgard_core_query_create_table@Base 10.05
  midgard_core_query_execute@Base 10.05
+ midgard_core_query_execute_statement@Base 10.05
  midgard_core_query_get_dbobject_model@Base 10.05
  midgard_core_query_get_field_value@Base 10.05
  midgard_core_query_get_id@Base 10.05
@@ -442,9 +472,7 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_object_is_in_parent_tree@Base 10.05
  midgard_object_is_in_tree@Base 10.05
  midgard_object_is_locked@Base 10.05
- midgard_object_list@Base 10.05
  midgard_object_list_attachments@Base 10.05
- midgard_object_list_children@Base 10.05
  midgard_object_list_parameters@Base 10.05
  midgard_object_lock@Base 10.05
  midgard_object_new@Base 10.05
@@ -478,6 +506,10 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_query_builder_private_new@Base 10.05
  midgard_query_builder_set_limit@Base 10.05
  midgard_query_builder_set_offset@Base 10.05
+ midgard_query_column_get_name@Base 10.05
+ midgard_query_column_get_qualifier@Base 10.05
+ midgard_query_column_get_query_property@Base 10.05
+ midgard_query_column_get_type@Base 10.05
  midgard_query_constraint_get_operator@Base 10.05
  midgard_query_constraint_get_property@Base 10.05
  midgard_query_constraint_get_storage@Base 10.05
@@ -509,11 +541,24 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_query_holder_set_value@Base 10.05
  midgard_query_property_get_type@Base 10.05
  midgard_query_property_new@Base 10.05
+ midgard_query_result_get_column_names@Base 10.05
+ midgard_query_result_get_columns@Base 10.05
+ midgard_query_result_get_objects@Base 10.05
+ midgard_query_result_get_rows@Base 10.05
+ midgard_query_result_get_type@Base 10.05
+ midgard_query_row_get_object@Base 10.05
+ midgard_query_row_get_type@Base 10.05
+ midgard_query_row_get_value@Base 10.05
+ midgard_query_row_get_values@Base 10.05
  midgard_query_select_get_type@Base 10.05
  midgard_query_select_include_deleted@Base 10.05
  midgard_query_select_list_objects@Base 10.05
  midgard_query_select_new@Base 10.05
  midgard_query_select_toggle_read_only@Base 10.05
+ midgard_query_selector_get_connection@Base 10.05
+ midgard_query_selector_get_query_result@Base 10.05
+ midgard_query_selector_get_query_string@Base 10.05
+ midgard_query_selector_get_type@Base 10.05
  midgard_query_storage_get_type@Base 10.05
  midgard_query_storage_new@Base 10.05
  midgard_query_value_create_with_value@Base 10.05
@@ -597,6 +642,25 @@ libmidgard2.so.2010 libmidgard2 #MINVER#
  midgard_schema_read_file@Base 10.05
  midgard_schema_type_exists@Base 10.05
  midgard_set_error@Base 10.05
+ midgard_sql_query_column_get_type@Base 10.05
+ midgard_sql_query_column_new@Base 10.05
+ midgard_sql_query_constraint_get_column@Base 10.05
+ midgard_sql_query_constraint_get_operator@Base 10.05
+ midgard_sql_query_constraint_get_property@Base 10.05
+ midgard_sql_query_constraint_get_type@Base 10.05
+ midgard_sql_query_constraint_new@Base 10.05
+ midgard_sql_query_constraint_set_holder@Base 10.05
+ midgard_sql_query_constraint_set_operator@Base 10.05
+ midgard_sql_query_constraint_set_storage@Base 10.05
+ midgard_sql_query_result_get_type@Base 10.05
+ midgard_sql_query_result_new@Base 10.05
+ midgard_sql_query_result_set_columns@Base 10.05
+ midgard_sql_query_row_get_type@Base 10.05
+ midgard_sql_query_row_new@Base 10.05
+ midgard_sql_query_select_data_add_column@Base 10.05
+ midgard_sql_query_select_data_get_columns@Base 10.05
+ midgard_sql_query_select_data_get_type@Base 10.05
+ midgard_sql_query_select_data_new@Base 10.05
  midgard_storage_create@Base 10.05
  midgard_storage_create_base_storage@Base 10.05
  midgard_storage_delete@Base 10.05

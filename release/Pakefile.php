@@ -63,9 +63,7 @@ function run_pack_all($task, $args)
     {
         pake_echo_comment($package);
         create_package($root.'/target', $package, $version, $options);
-    }
-
-    create_midgardmvc_package($root.'/target', $version, $options);
+    } 
 
     pake_echo_comment('Creating "AllinOne" archive');
     create_allinone($root.'/target', $version);

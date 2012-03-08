@@ -1,0 +1,7 @@
+
+1. Build midgard-core and install it.
+2. Generate symbols file:
+	`dpkg-gensymbols -plibmidgard2 -d -Odebian/libmidgard2.symbols -e/usr/lib/libmidgard2.so.2010 -v10.05`
+3. Build package 
+	`dpkg-buildpackage -rfakeroot`
+

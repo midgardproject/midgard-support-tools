@@ -55,7 +55,7 @@ binary-arch: install
 	dh_installchangelogs
 	dh_installman
 	dh_installpam --name=midgard2	
-	#dh_makeshlibs -V
+	dh_makeshlibs -V
 	dh_shlibdeps -s -l`pwd`/debian/tmp/usr/lib --dpkg-shlibdeps-params=--ignore-missing-info
 	dh_strip
 	dh_compress

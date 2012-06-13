@@ -1,11 +1,16 @@
 #!/bin/sh 
+set -e
+
+[ -x /usr/bin/dpkg-maintscript-helper ] && \
+	        dpkg-maintscript-helper rm_conffile /etc/php5/conf.d/midgard2.ini 10.05.6~ -- "$@"
 
 #DEBHELPER#
 
-set -e
-
 if test "$1" = "configure"; then
-	ucf /usr/share/doc/php5-midgard2/midgard2.ini /etc/php5/conf.d/midgard2.ini
+	ucf /usr/share/doc/php5-midgard2/midgard2.ini /etc/php5/mods-available/midgard2.ini
+	php5enmod midgard2
 fi
+
+#DEBHELPER#
 
 exit 0

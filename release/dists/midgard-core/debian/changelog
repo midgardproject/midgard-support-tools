@@ -1,3 +1,10 @@
+midgard2-core (10.05.7-1) unstable; urgency=low
+
+  * New upstream
+  * Build against libgda-5.0. Closes: #654772
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Wed, 13 Jun 2012 20:47:12 +0200
+
 midgard2-core (10.05.6-1) unstable; urgency=low
 
   * New upstream release 

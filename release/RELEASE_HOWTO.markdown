@@ -147,14 +147,8 @@ Submit release announcement by web to following locations:
 - http://www.midgard-project.org/updates/
 - http://freshmeat.net/projects/midgard
 - http://freshmeat.net/projects/midcom
-- http://www.cmsinfo.org/submission.php3
-- http://www.content-wire.com/contact
 - http://linuxtoday.com/contribute.php3
 - http://apache.slashdot.org/submit.pl
-- https://www.entwickler.com/ssl/php_forms/pme_general.php?check=1
-- http://cmsmatrix.org/matrix/news?func=add&class=WebGUI::Asset::Post::Thread
-- http://www.qaiku.com/channels/show/midgard/
-- http://jaiku.com/channel/midgard
 - http://www.new.facebook.com/group.php?gid=27554626815
 
 Also update the entry on Midgard in:

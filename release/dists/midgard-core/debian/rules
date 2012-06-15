@@ -11,7 +11,7 @@ CONFIGURE_FLAGS=	\
 	--prefix=/usr	\
 	--with-libgda5=yes
 
-build: build-arch build-indep
+build: patch build-arch build-indep
 build-arch:
 build-indep: build-stamp
 build-stamp: configure-stamp

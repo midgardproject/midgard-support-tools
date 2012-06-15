@@ -1,4 +1,4 @@
-libmidgard2.so.2010 libmidgard2-2010 #MINVER#
+libmidgard2.so.2010 libmidgard2 #MINVER#
  MIDGARD_MD5_Final@Base 10.05
  MIDGARD_MD5_Init@Base 10.05
  MIDGARD_MD5_Update@Base 10.05

@@ -1,3 +1,13 @@
+midgard2-core (12.09.1-1) unstable; urgency=low
+
+  * New upstream
+  * gir1.2-gda-5.0 and guilt removed from Build-Depends
+  * Renamed libmidgard to reflect so name 
+  * Renamed gir package to reflect gir policy
+  * Removed hard coded dependencies
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Wed, 26 Sep 2012 14:08:46 +0200
+
 midgard2-core (10.05.7-1) unstable; urgency=low
 
   * New upstream

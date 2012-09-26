@@ -1,4 +1,4 @@
-php5-midgard2 (12.09.1) unstable; urgency=low
+php5-midgard2 (12.09.1-1) unstable; urgency=low
 
   * New upstream
   * Midgard's dependency version bump

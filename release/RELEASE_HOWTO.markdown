@@ -13,7 +13,7 @@ Roles:
 -----------------------------------------
 
 * Version number should be chosen
-  ("10.05.1" will be used for example-purposes in this document)
+  ("12.09.1" will be used for example-purposes in this document)
 * Release plan should be announced to Commit Masters of all packages
 
 
@@ -28,8 +28,8 @@ version number
   sometimes it can be some specific commit, which is considered to be stable.
   For example:
 
-        git checkout ratatoskr
-        git checkout -b 10.05.1-tmp
+        git checkout gjallarhorn
+        git checkout -b 12.09.1-tmp
 
 * On this temporary branch change version-numbers mentioned in code. In case of
   our example, it would mean:
@@ -37,7 +37,7 @@ version number
   
   this command will help you to do such replaces:
 
-        rpl -R '10.05.0.99' '10.05.1' .
+        rpl -R '12.09.0.99' '12.09.1' .
 
 
 * commit changes
@@ -46,13 +46,13 @@ version number
 
 * create tag, return to generation-branch and remove temporary branch
 
-        git tag 10.05.1
-        git checkout ratatoskr
-        git branch -d 10.05.1-tmp
+        git tag 12.09.1
+        git checkout gjallarhorn
+        git branch -d 12.09.1-tmp
 
 * change version-numbers in generation-branch and commit
 
-        rpl -R '10.05.0.99' '10.05.1.99' .
+        rpl -R '12.09.0.99' '12.09.1.99' .
         git commit -a -m 'bump version'
 
 * push changes to github
@@ -60,9 +60,9 @@ version number
         git push
         git push --tags
 
-* Create new version-tag in github's issue-tracker "10.05.2"
+* Create new version-tag in github's issue-tracker "12.09.2"
 
-* Retag all unresolved issues in github's tracker which had "10.05.1" tag
+* Retag all unresolved issues in github's tracker which had "12.09.1" tag
 
 
 3. Packaging Tasks of Release Manager
@@ -73,7 +73,7 @@ version number
 * In midgard-support-tools/release issue the command, which will grab snapshots
   of all packages from github and pack them in proper tar.gz files:
 
-        pake pack_all 10.05.1
+        pake pack_all 12.09.1
 
 * Upload packages to http://www.midgard-project.org/download/
   The article should use the major version (for example 2.0)
@@ -144,7 +144,6 @@ Email release announcement to following addresses:
 
 Submit release announcement by web to following locations:
 
-- http://www.midgard-project.org/updates/
 - http://freshmeat.net/projects/midgard
 - http://freshmeat.net/projects/midcom
 - http://linuxtoday.com/contribute.php3

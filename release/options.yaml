@@ -1,5 +1,5 @@
-version: 10.05.7
-branch: ratatoskr
+version: 12.09.1
+branch: gjallarhorn
 core_prefix: /usr/local
 packages:
   - midgard-core

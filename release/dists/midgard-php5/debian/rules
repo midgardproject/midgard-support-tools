@@ -78,7 +78,7 @@ binary-arch: install
 	dh_fixperms
 	dh_makeshlibs
 	dh_installdeb
-	dh_shlibdeps -Llibmidgard2
+	dh_shlibdeps -Llibmidgard2-12.09
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb

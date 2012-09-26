@@ -60,6 +60,7 @@ binary-arch: install
 	dh_installpam --name=midgard2	
 	dh_makeshlibs -V
 	dh_shlibdeps -s -l`pwd`/debian/tmp/usr/lib --dpkg-shlibdeps-params=--ignore-missing-info
+	dh_girepository
 	dh_strip
 	dh_compress
 	dh_fixperms

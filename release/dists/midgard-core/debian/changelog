@@ -1,3 +1,21 @@
+midgard2-core (10.05.7.1-2) unstable; urgency=low
+
+  * libmidgard2 renamed to libmidgard2-2010.05
+  * Removed gir1.2-gda-5.0 and quilt from Build-Depends
+  * Removed hard coded libglib2.0-0, libxml2 and libdbus-glib-1-2 dependency
+  * gir1.2-midgard2 renamed to gir1.2-midgard-10.05
+  * .gir file moved to dev package
+  * Closes: #677795
+
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Thu, 27 Sep 2012 10:47:56 +0200
+
+midgard2-core (10.05.7.1-1) unstable; urgency=low
+
+  * New upstream. Closes: #678531
+  * Removed libgda-5.0 patches (fixed in upstream)
+  
+ -- Piotr Pokora <piotrek.pokora@gmail.com>  Mon, 25 Jun 2012 13:36:31 +0200
+
 midgard2-core (10.05.7-1) unstable; urgency=low
 
   * New upstream

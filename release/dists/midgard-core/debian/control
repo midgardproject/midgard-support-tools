@@ -5,12 +5,13 @@ Maintainer: Piotr Pokora <piotrek.pokora@gmail.com>
 Uploaders:
 Standards-Version: 3.9.3
 Homepage: http://www.midgard-project.org
-Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-5.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5), gir1.2-gda-5.0, quilt
+Build-Depends: debhelper (>=7.0), libglib2.0-dev (>=2.12),  autotools-dev, libxml2-dev(>=2.6.11), fakeroot, libdbus-glib-1-dev, zlib1g-dev, libgda-5.0-dev, gir1.2-freedesktop, gobject-introspection (>= 0.6.5), libgirepository1.0-dev (>= 0.6.5)
 
-Package: libmidgard2
+Package: libmidgard2-2010.05
 Architecture: any
-Depends: libglib2.0-0 (>=2.12), libxml2 (>=2.6.11), libdbus-glib-1-2, dbus, libgda-5.0-4, ${shlibs:Depends}, ${misc:Depends} 
-Conflicts: 
+Depends: libgda-5.0-4, ${shlibs:Depends}, ${misc:Depends} 
+Breaks: libmidgard2
+Replaces: libmidgard2
 Suggests: mysql-server
 Description: Midgard Content Repository - Runtime Library
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
@@ -22,7 +23,7 @@ Description: Midgard Content Repository - Runtime Library
 Package: libmidgard2-dev
 Section: libdevel
 Architecture: any
-Depends: libmidgard2 (= ${binary:Version}), libgda-5.0-dev, ${misc:Depends}
+Depends: libmidgard2-2010.05 (= ${binary:Version}), libgda-5.0-dev, ${misc:Depends}
 Conflicts:
 Replaces: 
 Description: Midgard Content Repository - Development Files
@@ -38,7 +39,7 @@ Description: Midgard Content Repository - Development Files
 Package: midgard2-common
 Section: utils
 Architecture: any
-Depends: libmidgard2 (>= ${source:Version}), ${misc:Depends}
+Depends: libmidgard2-2010.05 (>= ${source:Version}), ${misc:Depends}
 Description: Midgard2 common files used by different midgard extensions
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both
@@ -51,7 +52,7 @@ Description: Midgard2 common files used by different midgard extensions
 Package: midgard2-bin
 Section: utils
 Architecture: any
-Depends: libmidgard2 (>= ${source:Version}), midgard2-common (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: midgard2-common (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: Midgard2 command line tools.
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  
@@ -61,12 +62,12 @@ Description: Midgard2 command line tools.
  .
  This package contains command line tools and manuals.
 
-Package: gir1.2-midgard2
+Package: gir1.2-midgard-10.05
 Section: introspection
 Architecture: any
-Depends: libmidgard2 (>= ${source:Version}), midgard2-common (>= ${source:Version}), ${shlibs:Depends}, gir1.2-glib-2.0, libgirepository1.0-1, ${misc:Depends}
-Conflicts: gir1.0-midgard2
-Replaces: gir1.0-midgard2 
+Depends: midgard2-common (>= ${source:Version}), ${shlibs:Depends}, ${gir:Depends}, ${misc:Depends}
+Breaks: gir1.0-midgard2, gir1.2-midgard2
+Replaces: gir1.0-midgard2, gir1.2-midgard2 
 Description: Midgard2 - GObject Introspection
  Midgard2 is an Open Source Content Repository. It provides an object-oriented
  and replicated environment for building data-intensive applications for both  

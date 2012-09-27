@@ -1,7 +1,5 @@
 #! /usr/bin/make -f
 
-include /usr/share/quilt/quilt.make
-
 #export DH_VERBOSE=1
 export DH_OPTIONS
 
@@ -13,7 +11,7 @@ CONFIGURE_FLAGS=	\
 	--prefix=/usr	\
 	--with-libgda5=yes
 
-build: patch build-arch build-indep
+build: build-arch build-indep
 build-arch:
 build-indep: build-stamp
 build-stamp: configure-stamp
@@ -60,6 +58,7 @@ binary-arch: install
 	dh_installpam --name=midgard2	
 	dh_makeshlibs -V
 	dh_shlibdeps -s -l`pwd`/debian/tmp/usr/lib --dpkg-shlibdeps-params=--ignore-missing-info
+	dh_girepository
 	dh_strip
 	dh_compress
 	dh_fixperms
